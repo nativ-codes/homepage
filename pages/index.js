@@ -1,7 +1,22 @@
-export default function Home() {
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+import Header from '../components/sections/header';
+import About from '../components/sections/about';
+import Projects from '../components/sections/projects';
+import Footer from '../components/sections/footer';
+
+gsap.registerPlugin(ScrollTrigger);
+
+function Home() {
 	return (
-		<h1 className="text-3xl font-bold underline">
-			Hello world!
-		</h1>
+		<>
+			<Header />
+			<About />
+			<Projects />
+			<Footer />
+		</>
 	)
 }
+
+export default Home;
