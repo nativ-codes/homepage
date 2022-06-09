@@ -1,22 +1,22 @@
-function Logo() {
+function Logo({theme}) {
 	return (
 		<svg className="logo w-[600px] self-center" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="1050" height="630" viewBox="0 0 1050 630" xmlSpace="preserve">
 			<g className="right-arrow">
 				<g transform="matrix(0 1 1 0 140.03 286.99)">
-					<path className="fill-primary" d="M 7.06202 69.84495 L -63.01254 70.03134 L -6.987470000000002 -70.03135 L 63.01253 -70.03135 z" />
+					<path className={`fill-${theme}`} d="M 7.06202 69.84495 L -63.01254 70.03134 L -6.987470000000002 -70.03135 L 63.01253 -70.03135 z" />
 					<path className="fill-black opacity-20" d="M 7.06202 69.84495 L -63.01254 70.03134 L -6.987470000000002 -70.03135 L 63.01253 -70.03135 z" />
 				</g>
 				<g transform="matrix(0 -1 1 0 245 385)">
-					<path className="fill-primary" d="M -35 175 L -105 175 L 35 -175 L 105 -175 z" />
+					<path className={`fill-${theme}`} d="M -35 175 L -105 175 L 35 -175 L 105 -175 z" />
 				</g>
 			</g>
 			<g className="left-arrow">
 				<g transform="matrix(0 -1 -1 0 909.97 343.01)">
-					<path className="fill-primary" d="M 7.06202 69.84495 L -63.01254 70.03134 L -6.987470000000002 -70.03135 L 63.01253 -70.03135 z" />
+					<path className={`fill-${theme}`} d="M 7.06202 69.84495 L -63.01254 70.03134 L -6.987470000000002 -70.03135 L 63.01253 -70.03135 z" />
 					<path className="fill-black opacity-20" d="M 7.06202 69.84495 L -63.01254 70.03134 L -6.987470000000002 -70.03135 L 63.01253 -70.03135 z" />
 				</g>
 				<g transform="matrix(0 1 -1 0 805 245)">
-					<path className="fill-primary" d="M -35 175 L -105 175 L 35 -175 L 105 -175 z" />
+					<path className={`fill-${theme}`} d="M -35 175 L -105 175 L 35 -175 L 105 -175 z" />
 				</g>
 			</g>
 			<g className="text" transform="matrix(1 0 0 1 525 315)">

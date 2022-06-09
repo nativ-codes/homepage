@@ -29,8 +29,8 @@ function Footer({}) {
 	}, []);
 
 	return (
-		<section className="h-screen w-screen bg-dark z-[-10] footer-section flex justify-center" id="contact">
-			<Logo />
+		<section className="h-screen w-screen bg-primary z-[-10] footer-section flex justify-center" id="contact">
+			<Logo theme="white" />
 		</section>
 	);
 }

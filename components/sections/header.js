@@ -19,9 +19,9 @@ function Header({}) {
 	return (
 		<section className="bg-dark h-screen w-screen header-section text-white flex justify-center" id="home">
 			<div className="absolute">
-				<Menu theme="primary" />
+				<Menu theme="white" />
 			</div>
-			<Logo />
+			<Logo theme="primary" />
 		</section>
 	);
 }
