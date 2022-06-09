@@ -18,3 +18,11 @@ body {
 * {
 	box-sizing: border-box;
 }
+
+@font-face {
+	font-family: 'LemonMilk';
+	src: url("/fonts/LEMONMILK-Bold.otf");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
