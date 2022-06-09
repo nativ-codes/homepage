@@ -9,7 +9,6 @@ function Header({}) {
 		gsap.timeline({
 			scrollTrigger: {
 				trigger: '.header-section',
-				// start: "top top", 
 				pin: true, 
 				pinSpacing: false
 			}

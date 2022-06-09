@@ -17,10 +17,10 @@ function Menu({theme}) {
 
 	return (
 		<ul className={`flex flex-row text-${theme} my-8`}>
-			{sections.map((page, key) => page === '/' ? (
+			{sections.map(page => page === '/' ? (
 				<li className="px-2 font-bold text-sm">{page}</li>
 			) : (
-				<li className="px-2 cursor-pointer font-bold text-sm" onClick={scrollTo(page)}>{page.toUpperCase()}</li>
+				<li className="px-2 font-bold text-sm cursor-pointer" onClick={scrollTo(page)}>{page.toUpperCase()}</li>
 			))}
 		</ul>
 	)
