@@ -1,4 +1,5 @@
 function Logo({theme}) {
+	console.log("theme", theme);
 	return (
 		<svg className="logo w-[600px] self-center" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="1050" height="630" viewBox="0 0 1050 630" xmlSpace="preserve">
 			<g className="right-arrow">

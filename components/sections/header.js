@@ -21,6 +21,9 @@ function Header({}) {
 				<Menu theme="white" />
 			</div>
 			<Logo theme="primary" />
+			<div className="absolute px-2 font-bold text-base bottom-8">
+				Web & Mobile App Development
+			</div>
 		</section>
 	);
 }
