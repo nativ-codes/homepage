@@ -4,6 +4,18 @@ import { gsap } from 'gsap/dist/gsap';
 import Menu from '../ui/menu';
 
 function Contact({}) {
+	useEffect(() => {
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.contact-section',
+				scrub: 1,
+				start: 'top top',
+				pin: '.contact-section',
+				end: '+=200%',
+			}
+		});
+	}, []);
+
 	return (
 		<section className="flex h-screen overflow-hidden contact-section" id="contact">
 			<div className="bg-dark h-screen w-[50vw] shrink-0 relative z-10 justify-center flex items-center">
@@ -18,7 +30,7 @@ function Contact({}) {
 					<h1 className="text-4xl font-bold text-dark">Let&apos;s get in touch</h1>
 					<div className="text-lg mt-5 text-dark">Or you can reach us anytime via <span className="italic">hello@nativ.codes</span></div>
 				</div>
-				<form className="flex flex-col flex-1 justify-center">
+				<form className="flex flex-col flex-1 justify-center contact-article">
 					<input className="outline-none border-0 border-b-[1px] border-[#ccc] focus:border-primary py-2 px-1 text-lg" placeholder="Name" />
 					<input className="outline-none border-0 border-b-[1px] border-[#ccc] focus:border-primary py-2 px-1 text-lg mt-8" placeholder="Email" />
 					<textarea className="outline-none border-0 border-b-[1px] border-[#ccc] mt-8 focus:border-primary py-2 px-1 text-lg" placeholder="Enter your message" />
