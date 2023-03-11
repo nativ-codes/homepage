@@ -3,19 +3,33 @@ import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
 
+var frame_count  = 29,
+	offset_value = 316;
+
 function Projects({}) {
 	useEffect(() => {
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: '.work',
-				scrub: 0.5,
-				start: 'top top',
-				end: '500%',
-				pin: '.work-section',
-			}
-		}).to('.work', {
-			x: "-=250vw",
-		})
+	// 	gsap.timeline({
+	// 		scrollTrigger: {
+	// 			trigger: '.work',
+	// 			scrub: 0.5,
+	// 			start: 'top top',
+	// 			end: '200%',
+	// 			pin: '.work-section',
+	// 		}
+	// 	})
+
+		gsap.to("#work-listra", {
+		  backgroundPosition: (-offset_value * frame_count) + "px 0px",
+		  ease: "steps(" + frame_count + ")", // use a stepped ease for the sprite sheet
+		  scrollTrigger: {
+		    trigger: ".work-section",
+		    start: "top top",
+		    end: "+=" + (frame_count * offset_value),
+		    pin: true,
+		    scrub: true,
+		    markers: true,
+		  }
+		});
 	}, []);
 
 	return (
@@ -27,13 +41,9 @@ function Projects({}) {
 					<Menu theme="dark" />
 				</div>
 			</div>
-			<div className="flex flex-row work">
-				<div className="h-screen w-[50vw] bg-[red]">section red</div>
-				<div className="h-screen w-[50vw] bg-[blue]">section blue</div>
-				<div className="h-screen w-[50vw] bg-[red]">section red</div>
-				<div className="h-screen w-[50vw] bg-[blue]">section blue</div>
-				<div className="h-screen w-[50vw] bg-[red]">section red</div>
-				<div className="h-screen w-[50vw] bg-[blue]">section blue</div>
+			<div className="flex flex-row flex-1 work items-center justify-center">
+				<div id="work-listra" className="align-center"/>
+				<div id="download" />
 			</div>
 		</section>
 	);
