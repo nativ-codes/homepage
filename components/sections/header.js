@@ -20,7 +20,7 @@ function Header({}) {
 			<div className="absolute">
 				<Menu theme="white" />
 			</div>
-			<Logo theme="primary" />
+			<Logo isPrimary />
 			<div className="absolute px-2 font-bold text-base bottom-8">
 				Web & Mobile App Development
 			</div>

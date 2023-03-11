@@ -30,7 +30,7 @@ function Footer({}) {
 
 	return (
 		<section className="h-screen w-screen bg-primary z-[-10] footer-section flex justify-center" id="footer">
-			<Logo theme="white" />
+			<Logo />
 		</section>
 	);
 }

@@ -15,7 +15,7 @@ function Contact({}) {
 			</div>
 			<div className="w-[50vw] bg-white p-[96px]">
 				<div className="mb-10">
-					<h1 className="text-4xl font-bold text-dark">Let's get in touch</h1>
+					<h1 className="text-4xl font-bold text-dark">Let&apos;s get in touch</h1>
 					<div className="text-lg mt-5 text-dark">Or you can reach us anytime via <span className="italic">hello@nativ.codes</span></div>
 				</div>
 				<form className="flex flex-col flex-1 justify-center">
