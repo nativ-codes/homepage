@@ -21,7 +21,7 @@ body {
 
 @font-face {
 	font-family: 'LemonMilk';
-	src: url("/fonts/LEMONMILK-Bold.otf");
+	src: url("/assets/fonts/LEMONMILK-Bold.otf");
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
@@ -31,7 +31,7 @@ body {
 	width: 316px;
 	height: 650px;
 
-	background-image: url('/projects/listra/listra-sprite.png');
+	background-image: url('/assets/images/projects/listra/listra-sprite.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 }

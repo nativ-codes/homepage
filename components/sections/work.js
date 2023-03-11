@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Link from 'next/link'
+import Image from 'next/image'
 import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
@@ -41,18 +41,18 @@ function Projects({}) {
 				</div>
 			</div>
 			<div className="relative flex flex-1">
-				<div class="absolute inset-0 flex items-center justify-center" id="sprite-listra">
+				<div className="absolute inset-0 flex items-center justify-center" id="sprite-listra">
 					<div id="work-listra" className="align-center"/>
 				</div>
-				<div class="absolute inset-0 opacity-0 flex items-center justify-center flex-col" id="download-listra">
-					<img src="/projects/listra/listra-logo.png" />
+				<div className="absolute inset-0 opacity-0 flex items-center justify-center flex-col" id="download-listra">
+					<Image width="180" height="180" alt="Listra logo" src="/assets/images/projects/listra/listra-logo.png" />
 					<div className="flex flex-row mt-10">
-					 <a target="_blank" href={appStoreListra} className="cursor-pointer">
-						<img src="/projects/app-store.png" className="flex flex-row mr-4" />
-					</a>
-					 <a target="_blank" href={googlePlayListra} className="cursor-pointer">
-						<img src="/projects/google-play.png" />
-					</a>
+						 <a rel="noreferrer" target="_blank" href={appStoreListra} className="cursor-pointer mr-4">
+							<Image width="150" height="44" alt="App store logo" src="/assets/images/projects/app-store.png" />
+						</a>
+						 <a rel="noreferrer" target="_blank" href={googlePlayListra} className="cursor-pointer">
+							<Image width="150" height="44" alt="Google play logo" src="/assets/images/projects/google-play.png" />
+						</a>
 					</div>
 				</div>
 			</div>

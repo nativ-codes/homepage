@@ -28,7 +28,7 @@ function About({}) {
 						c3.328-1.899,5.376-5.44,5.376-9.259V138.667C490.667,134.848,488.619,131.307,485.291,129.408z"/>
 					</clipPath>
 
-					<image href="/logo-150.png" width="100%" height="100%" clipPath="url(#hexagon)" />
+					<image href="/assets/images/logo.png" width="100%" height="100%" clipPath="url(#hexagon)" />
 				</svg>
 
 				<div className="absolute bottom-0 left-0 right-0 flex justify-center">
@@ -36,7 +36,7 @@ function About({}) {
 				</div>
 			</div>
 			<div className="h-[200vh] w-[50vw] article bg-white p-[96px]" id="about-right">
-				At NativCodes, we build web and mobile apps. That's it.
+				At NativCodes, we build web and mobile apps. That&apos;s it.
 			</div>
 		</section>
 	);
