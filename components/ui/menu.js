@@ -5,7 +5,7 @@ function Menu({theme}) {
 		const scrollToMapper = {
 			home: 0,
 			about: window.innerHeight,
-			work: window.innerHeight * 4,
+			work: window.innerHeight * 7,
 			contact: window.innerHeight * 21
 		}
 
