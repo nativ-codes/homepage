@@ -6,7 +6,7 @@ function Menu({theme}) {
 			home: 0,
 			about: window.innerHeight,
 			work: window.innerHeight * 4,
-			contact: window.innerHeight * 18
+			contact: window.innerHeight * 21
 		}
 
 		window.scrollTo({
