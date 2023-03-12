@@ -4,7 +4,7 @@ import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
 
-const listraFramesCount = 29;
+const listraFramesCount = 38;
 const listraFrameWidth = 316;
 
 const googlePlayListra = "https://play.google.com/store/apps/details?id=com.listra";
@@ -41,7 +41,8 @@ function Projects({}) {
 				</div>
 			</div>
 			<div className="relative flex flex-1">
-				<div className="absolute inset-0 flex items-center justify-center" id="sprite-listra">
+				<div className="absolute inset-0 flex items-center justify-center flex-col" id="sprite-listra">
+					<h1 className="text-dark text-2xl font-bold tracking-wider mb-8">Listra: Shopping list & notes</h1>
 					<div id="work-listra" className="align-center"/>
 				</div>
 				<div className="absolute inset-0 opacity-0 flex items-center justify-center flex-col" id="download-listra">
