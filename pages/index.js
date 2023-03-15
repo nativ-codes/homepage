@@ -17,6 +17,8 @@ function Home() {
 		<>
 			<Head>
 				<title>NativCodes</title>
+				<link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
 				<meta name="description" content="Web & Mobile App Development" />
 
 				<meta property="og:url" content="http://nativ.codes" />
