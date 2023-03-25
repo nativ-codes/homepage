@@ -4,16 +4,13 @@ import { gsap } from 'gsap/dist/gsap';
 import Logo from '../ui/logo';
 import Menu from '../ui/menu';
 
+import useResponsiveTimeline from '../../utils/use-responsive-timeline';
+import {getHeaderTimeline} from '../../utils/timelines';
+
 function Header({}) {
-	// useEffect(() => {
-	// 	gsap.timeline({
-	// 		scrollTrigger: {
-	// 			trigger: '.header-section',
-	// 			pin: true, 
-	// 			pinSpacing: false
-	// 		}
-	// 	})
-	// }, []);
+	useResponsiveTimeline({
+		screenTimelineFn: getHeaderTimeline
+	});
 
 	return (
 		<section className="bg-dark h-screen w-screen header-section text-white flex justify-center" id="home">

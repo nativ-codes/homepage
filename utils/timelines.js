@@ -161,17 +161,39 @@ function getFooterTimeline() {
 			pin: true,
 			pinSpacing: true
 		}
-	}).to('.text', {
+	}).to('.logo-expanded-text', {
 		opacity: 0,
 		duration: 0.2
-	}, 0).to('.left-arrow', {
+	}, 0).to('.logo-expanded-left-arrow', {
 		translateX: -280,
 		translateY: -50,
-	}, 0).to('.right-arrow', {
+	}, 0).to('.logo-expanded-right-arrow', {
 		translateX: 280,
 		translateY: 90,
-	}, 0).to('.logo', {
+	}, 0).to('.logo-expanded', {
 		rotation: -90
+	}, 0);
+}
+
+function getHeaderTimeline() {
+	return gsap.timeline({
+		scrollTrigger: {
+			trigger: '.header-section',
+			end: '+=200%',
+			pin: true,
+			scrub: 0.5,
+			// pinSpacing: false
+		}
+	}).to('.logo-small-left-arrow', {
+		translateX: 0,
+		translateY: 0,
+	}, 0).to('.logo-small-right-arrow', {
+		translateX: 0,
+		translateY: 0,
+	}, 0).to('.logo-small-text', {
+		opacity: 1
+	}, '>').to('.logo-small', {
+		rotation: 0
 	}, 0);
 }
 
@@ -190,4 +212,6 @@ export {
 	getContactRightSmallScreenTimeline,
 	// Footer
 	getFooterTimeline,
+	// Header
+	getHeaderTimeline
 };
