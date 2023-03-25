@@ -3,8 +3,16 @@ import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
 
+import useResponsiveTimeline from '../../utils/use-responsive-timeline';
+import {getContactLargeScreenTimeline, getContactLeftSmallScreenTimeline, getContactRightSmallScreenTimeline} from '../../utils/timelines';
+
 function Contact({}) {
 	const [isFormSent, setIsFormSent] = useState(false);
+	
+	useResponsiveTimeline({
+		largeScreenTimelineFn: getContactLargeScreenTimeline,
+		smallScreenTimelineFn: [getContactLeftSmallScreenTimeline, getContactRightSmallScreenTimeline]
+	});
 
 	const handleOnSubmit = event => {
 		event.preventDefault();
@@ -20,38 +28,16 @@ function Contact({}) {
 		event.target.reset();
 	}
 
-	// useEffect(() => {
-	// 	const mql = window.matchMedia("(min-width: 1280px)");
-
-	// 	function screenTest({matches}) {
-	// 		if (matches) {
-	// 			gsap.timeline({
-	// 				scrollTrigger: {
-	// 					trigger: '.contact-section',
-	// 					scrub: 1,
-	// 					start: 'top top',
-	// 					pin: '.contact-section',
-	// 					end: '+=200%',
-	// 				}
-	// 			});
-	// 		} else {
-
-	// 		}
-	// 	}
-
-	// 	mql.addEventListener("change", screenTest);
-	// }, [])
-
 	return (
 		<section className="contact-section flex lg:h-screen flex-col lg:flex-row" id="contact">
-			<div className="bg-dark relative flex justify-center items-center h-screen w-full lg:w-2/4">
+			<div className="contact-section-left bg-dark relative flex justify-center items-center h-screen w-full lg:w-2/4">
 				<div className="font-[LemonMilk] text-white text-5xl tracking-wider">CONTACT</div>
 
 				<div className="absolute bottom-0 left-0 right-0 flex justify-center">
 					<Menu theme="white" />
 				</div>
 			</div>
-			<div className="bg-white p-[96px] w-full h-screen lg:w-2/4">
+			<div className="contact-section-right bg-white p-[96px] w-full h-screen lg:w-2/4">
 				<div className="mb-10">
 					<h1 className="text-4xl font-bold text-dark">Let&apos;s get in touch</h1>
 					<div className="text-lg mt-5 text-dark">Or you can reach us anytime via <span className="italic">hello@nativ.codes</span></div>

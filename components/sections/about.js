@@ -3,7 +3,15 @@ import Image from 'next/image'
 
 import Menu from '../ui/menu';
 
+import useResponsiveTimeline from '../../utils/use-responsive-timeline';
+import {getAboutLargeScreenTimeline, getAboutRightSmallScreenTimeline, getAboutLeftSmallScreenTimeline} from '../../utils/timelines';
+
 function About() {
+	useResponsiveTimeline({
+		largeScreenTimelineFn: getAboutLargeScreenTimeline,
+		smallScreenTimelineFn: [getAboutLeftSmallScreenTimeline, getAboutRightSmallScreenTimeline]
+	});
+
 	return (
 		<section className="about-section flex lg:h-screen flex-col lg:flex-row">
 			<div className="about-section-left bg-primary relative flex justify-center items-center h-screen w-full lg:w-2/4">

@@ -4,10 +4,18 @@ import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
 
+import useResponsiveTimeline from '../../utils/use-responsive-timeline';
+import {getWorkLargeScreenTimeline, getWorkLeftSmallScreenTimeline, getWorkRightSmallScreenTimeline} from '../../utils/timelines';
+
 const googlePlayListra = "https://play.google.com/store/apps/details?id=com.listra";
 const appStoreListra = "https://apps.apple.com/ro/app/listra-shopping-list-notes/id6445855837";
 
-function Projects({}) {
+function Work({}) {
+	useResponsiveTimeline({
+		largeScreenTimelineFn: getWorkLargeScreenTimeline,
+		smallScreenTimelineFn: [getWorkLeftSmallScreenTimeline, getWorkRightSmallScreenTimeline]
+	});
+
 	return (
 		<section className="work-section flex lg:h-screen flex-col lg:flex-row" id="work">
 			<div className="work-section-left bg-white relative flex justify-center items-center h-screen w-full lg:w-2/4">
@@ -38,6 +46,6 @@ function Projects({}) {
 	);
 }
 
-export default Projects;
+export default Work;
 
 // https://codeshack.io/images-sprite-sheet-generator/

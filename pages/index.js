@@ -10,48 +10,9 @@ import Work from '../components/sections/work';
 import Contact from '../components/sections/contact';
 import Footer from '../components/sections/footer';
 
-import {
-	getAboutLargeScreenTimeline,
-	getAboutSmallScreenTimeline,
-	getWorkLargeScreenTimeline
-} from '../utils/timelines';
-
 gsap.registerPlugin(ScrollTrigger);
 
-const aboutTimeline = () => {
-	console.log("aboutTimeline");
-	let aboutLargeScreenTimeline;
-	let aboutSmallScreenTimeline;
-
-	// getWorkLargeScreenTimeline();
-	// getAboutLargeScreenTimeline();
-
-	return ({matches}) => {
-		// console.log("matches", matches);
-		// if (matches) {
-		// 	aboutSmallScreenTimeline?.scrollTrigger?.kill();
-		// 	aboutLargeScreenTimeline = getAboutLargeScreenTimeline();
-		// } else {
-		// 	aboutLargeScreenTimeline?.scrollTrigger?.kill();
-		// 	aboutSmallScreenTimeline = getAboutSmallScreenTimeline();
-		// }
-	}
-}
-
 function Home() {
-
-	useEffect(() => {
-		const aboutTimelineFn = aboutTimeline();
-
-		// Initial run
-		aboutTimelineFn({
-			matches: window.innerWidth >= 937
-		});
-
-		const mql = window.matchMedia("(min-width: 937px)");
-		mql.addEventListener("change", aboutTimelineFn);
-	}, [])
-
 	return (
 		<>
 			<Head>
