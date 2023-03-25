@@ -1,37 +1,14 @@
 import { useEffect } from 'react';
 import Image from 'next/image'
-import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
 
-function About({}) {
-	useEffect(() => {
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: '.article',
-				scrub: 0.5,
-				start: 'top top',
-				end: '+=500%',
-				pin: '.about-section',
-			}
-		}).to('.html-tech-stack', {
-			opacity: 0
-		}, '>').to('.javascript-tech-stack', {
-			opacity: 0
-		}, '>').to('.nodejs-tech-stack', {
-			opacity: 0
-		}, '>').to('.mongodb-tech-stack', {
-			opacity: 0
-		}, '>').to('.git-tech-stack', {
-			opacity: 0
-		}, '>');
-	}, []);
-
+function About() {
 	return (
-		<section className="flex h-screen overflow-hidden about-section" id="about">
-			<div className="bg-primary h-screen w-[50vw] shrink-0 relative z-10 justify-center flex items-center">
+		<section className="about-section flex lg:h-screen flex-col lg:flex-row">
+			<div className="about-section-left bg-primary relative flex justify-center items-center h-screen w-full lg:w-2/4">
 				<div className="font-[LemonMilk] text-white text-5xl tracking-wider">ABOUT</div>
-				<svg viewBox="0 0 512 512" width="130" height="130" className="absolute right-[-65px] top-[96px]">
+				<svg viewBox="0 0 512 512" width="130" height="130" className="hidden lg:block absolute right-[-65px] top-[96px]">
 					<clipPath id="hexagon">
 						<path id="heart" d="M485.291,129.408l-224-128c-3.285-1.877-7.296-1.877-10.581,0l-224,128c-3.328,1.899-5.376,5.44-5.376,9.259v234.667
 						c0,3.819,2.048,7.36,5.376,9.259l224,128c1.643,0.939,3.456,1.408,5.291,1.408s3.648-0.469,5.291-1.408l224-128
@@ -45,13 +22,13 @@ function About({}) {
 					<Menu theme="white" />
 				</div>
 			</div>
-			<div className="h-[200vh] w-[50vw] article bg-white p-[96px]" id="about-right">
+			<div className="about-section-right bg-white p-[96px] w-full h-screen lg:w-2/4">
 				<h1 className="text-4xl font-bold text-dark mb-5">Hello world!</h1>
 				<div className="text-lg text-dark mt-2">Welcome to <span className="italic">NativCodes</span>, the place where we play with <span className="italic">The Code</span> and build awesome apps.</div>
 				<div className="text-lg text-dark mt-2">We are a team of tech enthusiasts who thrive on solving complex problems and transforming ideas into reality. Our expertise lies in developing native applications for iOS and Android platforms, as well as building responsive websites using cutting-edge technologies.</div>
 				<div className="text-lg text-dark mt-2">At <span className="italic">NativCodes</span>, we are committed to staying on the forefront of emerging technologies and trends. We continuously research and experiment with new tools and techniques, allowing us to provide our apps with the most performant, scalable, and secure implementations.</div>
 
-				<div className="flex flex-row items-center flex-wrap justify-center mt-2">
+				<div className="flex flex-row items-center flex-wrap justify-center mt-2 hidden lg:block">
 					<div className="relative w-[200px] h-[200px]">
 						<div className="absolute css-tech-stack">
 							<Image src="/assets/images/tech/css-logo.png" alt="css logo" width="200" height="200" />

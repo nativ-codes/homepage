@@ -5,15 +5,15 @@ import Logo from '../ui/logo';
 import Menu from '../ui/menu';
 
 function Header({}) {
-	useEffect(() => {
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: '.header-section',
-				pin: true, 
-				pinSpacing: false
-			}
-		})
-	}, []);
+	// useEffect(() => {
+	// 	gsap.timeline({
+	// 		scrollTrigger: {
+	// 			trigger: '.header-section',
+	// 			pin: true, 
+	// 			pinSpacing: false
+	// 		}
+	// 	})
+	// }, []);
 
 	return (
 		<section className="bg-dark h-screen w-screen header-section text-white flex justify-center" id="home">

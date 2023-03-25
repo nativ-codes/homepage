@@ -4,43 +4,20 @@ import { gsap } from 'gsap/dist/gsap';
 
 import Menu from '../ui/menu';
 
-const listraFramesCount = 38;
-const listraFrameWidth = 316;
-
 const googlePlayListra = "https://play.google.com/store/apps/details?id=com.listra";
 const appStoreListra = "https://apps.apple.com/ro/app/listra-shopping-list-notes/id6445855837";
 
 function Projects({}) {
-	useEffect(() => {
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: ".work-section",
-				start: "top top",
-				end: "+=" + (listraFramesCount * listraFrameWidth),
-				pin: true,
-				scrub: true,
-				// markers: true,
-			}
-		}).to("#work-listra", {
-		  backgroundPosition: (-listraFrameWidth * listraFramesCount) + "px 0px",
-		  ease: "steps(" + listraFramesCount + ")", // use a stepped ease for the sprite sheet
-		}, 0).to("#download-listra", {
-		  opacity: 1
-		}, ">").to("#sprite-listra", {
-		  opacity: 0
-		}, "<");
-	}, []);
-
 	return (
-		<section className="flex flex-row work-section" id="work">
-			<div className="shrink-0 h-screen w-[50vw] bg-white z-10 relative justify-center flex items-center">
+		<section className="work-section flex lg:h-screen flex-col lg:flex-row" id="work">
+			<div className="work-section-left bg-white relative flex justify-center items-center h-screen w-full lg:w-2/4">
 				<div className="font-[LemonMilk] text-dark text-5xl tracking-wider">WORK</div>
 
 				<div className="absolute bottom-0 left-0 right-0 flex justify-center">
 					<Menu theme="dark" />
 				</div>
 			</div>
-			<div className="relative flex flex-1">
+			<div className="work-section-right relative bg-white p-[96px] w-full h-screen lg:w-2/4">
 				<div className="absolute inset-0 flex items-center justify-center flex-col" id="sprite-listra">
 					<h1 className="text-dark text-2xl font-bold tracking-wider mb-8">Listra: Shopping list & notes</h1>
 					<div id="work-listra" className="align-center"/>

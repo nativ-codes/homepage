@@ -20,28 +20,38 @@ function Contact({}) {
 		event.target.reset();
 	}
 
-	useEffect(() => {
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: '.contact-section',
-				scrub: 1,
-				start: 'top top',
-				pin: '.contact-section',
-				end: '+=200%',
-			}
-		});
-	}, []);
+	// useEffect(() => {
+	// 	const mql = window.matchMedia("(min-width: 1280px)");
+
+	// 	function screenTest({matches}) {
+	// 		if (matches) {
+	// 			gsap.timeline({
+	// 				scrollTrigger: {
+	// 					trigger: '.contact-section',
+	// 					scrub: 1,
+	// 					start: 'top top',
+	// 					pin: '.contact-section',
+	// 					end: '+=200%',
+	// 				}
+	// 			});
+	// 		} else {
+
+	// 		}
+	// 	}
+
+	// 	mql.addEventListener("change", screenTest);
+	// }, [])
 
 	return (
-		<section className="flex h-screen overflow-hidden contact-section" id="contact">
-			<div className="bg-dark h-screen w-[50vw] shrink-0 relative z-10 justify-center flex items-center">
+		<section className="contact-section flex lg:h-screen flex-col lg:flex-row" id="contact">
+			<div className="bg-dark relative flex justify-center items-center h-screen w-full lg:w-2/4">
 				<div className="font-[LemonMilk] text-white text-5xl tracking-wider">CONTACT</div>
 
 				<div className="absolute bottom-0 left-0 right-0 flex justify-center">
 					<Menu theme="white" />
 				</div>
 			</div>
-			<div className="w-[50vw] bg-white p-[96px]">
+			<div className="bg-white p-[96px] w-full h-screen lg:w-2/4">
 				<div className="mb-10">
 					<h1 className="text-4xl font-bold text-dark">Let&apos;s get in touch</h1>
 					<div className="text-lg mt-5 text-dark">Or you can reach us anytime via <span className="italic">hello@nativ.codes</span></div>
