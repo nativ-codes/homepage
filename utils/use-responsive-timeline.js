@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
 const killScrollTrigger = timelineScrollTrigger => {
 	if(Array.isArray(timelineScrollTrigger)) {
@@ -46,4 +46,19 @@ const useResponsiveTimeline = props => {
 	}, [])
 }
 
+const useResponsive = () => {
+	const [isSmallScreen, setIsSmallScreen] = useState(true);
+
+	useEffect(() => {
+		// Initial run
+		setIsSmallScreen(window.innerWidth <= 937);
+
+		const mql = window.matchMedia("(min-width: 937px)");
+		mql.addEventListener("change", ({matches}) => setIsSmallScreen(!matches));		
+	}, []);
+
+	return isSmallScreen;
+}
+
+export {useResponsive};
 export default useResponsiveTimeline;

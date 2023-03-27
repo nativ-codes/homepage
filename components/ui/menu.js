@@ -1,16 +1,25 @@
+import {useResponsive} from '../../utils/use-responsive-timeline';
 const sections = ['home', '/', 'about', '/', 'work', '/', 'contact'];
 
 function Menu({theme}) {
+	const isSmallScreen = useResponsive();
+
 	const scrollTo = page => () => {
-		const scrollToMapper = {
+		const largeScreenMapper = {
 			home: 0,
-			about: window.innerHeight,
-			work: window.innerHeight * 7,
+			about: window.innerHeight * 2,
+			work: window.innerHeight * 4,
+			contact: window.innerHeight * 18
+		}
+		const smallScreenMapper = {
+			home: 0,
+			about: window.innerHeight * 2,
+			work: window.innerHeight * 5.5,
 			contact: window.innerHeight * 21
 		}
 
 		window.scrollTo({
-			top: scrollToMapper[page],
+			top: (isSmallScreen ? smallScreenMapper : largeScreenMapper)[page],
 			behavior: 'smooth'
 		});
 	}

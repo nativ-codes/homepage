@@ -7,7 +7,7 @@ function getAboutLargeScreenTimeline() {
 			trigger: '.about-section',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=500%',
+			end: '+=100%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -29,7 +29,7 @@ function getAboutLeftSmallScreenTimeline() {
 			trigger: '.about-section-left',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=200%',
+			end: '+=50%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -43,7 +43,7 @@ function getAboutRightSmallScreenTimeline() {
 			trigger: '.about-section-right',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=500%',
+			end: '+=100%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -88,7 +88,7 @@ function getWorkLeftSmallScreenTimeline() {
 			trigger: '.work-section-left',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=200%',
+			end: '+=50%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -126,7 +126,7 @@ function getContactLargeScreenTimeline() {
 			scrub: 1,
 			start: 'top top',
 			pin: '.contact-section',
-			end: '+=200%',
+			end: '+=50%',
 		}
 	});
 }
@@ -138,7 +138,7 @@ function getContactLeftSmallScreenTimeline() {
 			trigger: '.contact-section-left',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=200%',
+			end: '+=50%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -152,7 +152,7 @@ function getContactRightSmallScreenTimeline() {
 			trigger: '.contact-section-right',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=200%',
+			end: '+=50%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -164,7 +164,7 @@ function getFooterTimeline() {
 		scrollTrigger: {
 			trigger: '.footer-section',
 			scrub: 0.5,
-			end: '+=400%',
+			end: '+=200%',
 			pin: true,
 			pinSpacing: true
 		}
@@ -186,7 +186,7 @@ function getHeaderTimeline() {
 	return gsap.timeline({
 		scrollTrigger: {
 			trigger: '.header-section',
-			end: '+=200%',
+			end: '+=100%',
 			pin: true,
 			scrub: 0.5,
 			// pinSpacing: false
