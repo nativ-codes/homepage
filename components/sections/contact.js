@@ -37,7 +37,7 @@ function Contact({}) {
 					<Menu theme="white" />
 				</div>
 			</div>
-			<div className="contact-section-right bg-white p-[96px] w-full h-screen lg:w-2/4">
+			<div className="contact-section-right bg-white p-[56px] lg:p-[96px] w-full h-screen lg:w-2/4">
 				<div className="mb-10">
 					<h1 className="text-4xl font-bold text-dark">Let&apos;s get in touch</h1>
 					<div className="text-lg mt-5 text-dark">Or you can reach us anytime via <span className="italic">hello@nativ.codes</span></div>

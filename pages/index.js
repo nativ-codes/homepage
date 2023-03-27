@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useLayoutEffect} from 'react';
 import Head from 'next/head'
 
 import { gsap } from 'gsap/dist/gsap';
@@ -10,9 +10,11 @@ import Work from '../components/sections/work';
 import Contact from '../components/sections/contact';
 import Footer from '../components/sections/footer';
 
-gsap.registerPlugin(ScrollTrigger);
-
 function Home() {
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
+
 	return (
 		<>
 			<Head>

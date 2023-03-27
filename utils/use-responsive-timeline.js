@@ -46,20 +46,4 @@ const useResponsiveTimeline = props => {
 	}, [])
 }
 
-// const timeline = ({largeScreenTimelineFn, smallScreenTimelineFn, screenTimelineFn}) => {
-// 	let largeScreenTimeline;
-// 	let smallScreenTimeline;
-// 	screenTimelineFn?.();
-
-// 	return ({matches}) => {
-// 		if(matches) {
-// 			smallScreenTimeline?.scrollTrigger?.kill();
-// 			largeScreenTimeline = largeScreenTimelineFn?.();
-// 		} else {
-// 			largeScreenTimeline?.scrollTrigger?.kill();
-// 			smallScreenTimeline = smallScreenTimelineFn?.();
-// 		}
-// 	}
-// }
-
 export default useResponsiveTimeline;

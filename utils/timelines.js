@@ -8,7 +8,8 @@ function getAboutLargeScreenTimeline() {
 			scrub: 0.5,
 			start: 'top top',
 			end: '+=500%',
-			pin: true
+			pin: true,
+			pinSpacing: true
 		}
 	}).to('.html-tech-stack', {
 		opacity: 0
@@ -17,8 +18,6 @@ function getAboutLargeScreenTimeline() {
 	}, '>').to('.nodejs-tech-stack', {
 		opacity: 0
 	}, '>').to('.mongodb-tech-stack', {
-		opacity: 0
-	}, '>').to('.git-tech-stack', {
 		opacity: 0
 	}, '>');
 }
@@ -44,11 +43,19 @@ function getAboutRightSmallScreenTimeline() {
 			trigger: '.about-section-right',
 			scrub: 0.5,
 			start: 'top top',
-			end: '+=200%',
+			end: '+=500%',
 			pin: true,
 			pinSpacing: true
 		}
-	});
+	}).to('.html-tech-stack', {
+		opacity: 0
+	}, '>').to('.javascript-tech-stack', {
+		opacity: 0
+	}, '>').to('.nodejs-tech-stack', {
+		opacity: 0
+	}, '>').to('.mongodb-tech-stack', {
+		opacity: 0
+	}, '>');
 }
 
 function getWorkLargeScreenTimeline() {

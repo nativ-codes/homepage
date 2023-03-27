@@ -25,7 +25,7 @@ function Work({}) {
 					<Menu theme="dark" />
 				</div>
 			</div>
-			<div className="work-section-right relative bg-white p-[96px] w-full h-screen lg:w-2/4">
+			<div className="work-section-right relative bg-white p-[56px] lg:p-[96px] w-full h-screen lg:w-2/4">
 				<div className="absolute inset-0 flex items-center justify-center flex-col" id="sprite-listra">
 					<h1 className="text-dark text-2xl font-bold tracking-wider mb-8">Listra: Shopping list & notes</h1>
 					<div id="work-listra" className="align-center"/>
