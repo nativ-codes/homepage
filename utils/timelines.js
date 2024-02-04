@@ -1,6 +1,7 @@
 import { gsap } from "gsap/dist/gsap";
 
 function getAboutLargeScreenTimeline() {
+  //  return;
   return gsap
     .timeline({
       scrollTrigger: {
@@ -42,6 +43,7 @@ function getAboutLargeScreenTimeline() {
 }
 
 function getAboutLeftSmallScreenTimeline() {
+  //  return;
   return gsap.timeline({
     scrollTrigger: {
       trigger: ".about-section-left",
@@ -54,6 +56,7 @@ function getAboutLeftSmallScreenTimeline() {
 }
 
 function getAboutRightSmallScreenTimeline() {
+  //  return;
   return gsap
     .timeline({
       scrollTrigger: {
@@ -95,6 +98,7 @@ function getAboutRightSmallScreenTimeline() {
 }
 
 function getWorkLargeScreenTimeline() {
+  //  return;
   const listraFramesCount = 38;
   const listraFrameWidth = 316;
 
@@ -133,6 +137,7 @@ function getWorkLargeScreenTimeline() {
 }
 
 function getWorkLeftSmallScreenTimeline() {
+  //  return;
   return gsap.timeline({
     scrollTrigger: {
       trigger: ".work-section-left",
@@ -145,6 +150,7 @@ function getWorkLeftSmallScreenTimeline() {
 }
 
 function getWorkRightSmallScreenTimeline() {
+  //  return;
   const listraFramesCount = 38;
   const listraFrameWidth = 316;
 
@@ -184,6 +190,7 @@ function getWorkRightSmallScreenTimeline() {
 }
 
 function getContactLargeScreenTimeline() {
+  //  return;
   return gsap.timeline({
     scrollTrigger: {
       trigger: ".contact-section",
@@ -195,6 +202,7 @@ function getContactLargeScreenTimeline() {
 }
 
 function getContactLeftSmallScreenTimeline() {
+  //  return;
   return gsap.timeline({
     scrollTrigger: {
       trigger: ".contact-section-left",
@@ -207,6 +215,7 @@ function getContactLeftSmallScreenTimeline() {
 }
 
 function getContactRightSmallScreenTimeline() {
+  //  return;
   return gsap.timeline({
     scrollTrigger: {
       trigger: ".contact-section-right",
@@ -219,6 +228,7 @@ function getContactRightSmallScreenTimeline() {
 }
 
 function getFooterTimeline() {
+  //  return;
   return gsap
     .timeline({
       scrollTrigger: {
@@ -263,6 +273,7 @@ function getFooterTimeline() {
 }
 
 function getHeaderTimeline() {
+  //  return;
   return gsap
     .timeline({
       scrollTrigger: {

@@ -10,6 +10,7 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+
 body {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -34,4 +35,13 @@ body {
 	background-image: url('/assets/images/projects/listra/listra-sprite.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
+}
+
+.footer-section,
+.work-section,
+.about-section,
+.header-section,
+.contact-section {
+	overflow: hidden;
+	max-height: 100%;
 }
