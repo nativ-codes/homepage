@@ -48,6 +48,10 @@ body {
 	background-position: 0px 0px;
 }
 
+.not-found {
+	@apply px-5;
+}
+
 .footer-section,
 .work-section,
 .about-section,

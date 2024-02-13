@@ -13,9 +13,9 @@ function Menu({ theme }) {
 		};
 		const smallScreenMapper = {
 			home: 0,
-			about: window.innerHeight * 2,
-			work: window.innerHeight * 4,
-			contact: window.innerHeight * 6,
+			about: window.innerHeight,
+			work: window.innerHeight * 3,
+			contact: window.innerHeight * 5,
 		};
 
 		window.scrollTo({

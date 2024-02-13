@@ -21,7 +21,7 @@ function Header({}) {
 			className="bg-dark h-screen w-screen header-section text-white flex justify-center"
 			id="home"
 		>
-			<div className="absolute">
+			<div className="absolute z-10">
 				<Menu theme="white" />
 			</div>
 			<Logo isPrimary />
