@@ -1,8 +1,12 @@
+import { Suspense, useEffect } from "react";
+import { useSearchParams } from 'next/navigation'
 import { useResponsive } from "../../utils/use-responsive-timeline";
 const sections = ["home", "/", "about", "/", "work", "/", "contact"];
 
 function Menu({ theme }) {
 	const isSmallScreen = useResponsive();
+	const searchParams = useSearchParams();
+	const searchParamsPage = searchParams.get('page');
 
 	const scrollTo = (page) => () => {
 		const largeScreenMapper = {
@@ -23,6 +27,12 @@ function Menu({ theme }) {
 			behavior: "smooth",
 		});
 	};
+
+	useEffect(() => {
+		if (searchParamsPage) {
+			scrollTo(searchParamsPage)();
+		}
+	}, [searchParamsPage])
 
 	return (
 		<ul className={`flex flex-row text-${theme} my-8`}>
@@ -48,4 +58,12 @@ function Menu({ theme }) {
 	);
 }
 
-export default Menu;
+function MenuWrapper(props) {
+	return (
+		<Suspense fallback={null}>
+			<Menu {...props} />
+		</Suspense>
+	);
+}
+
+export default MenuWrapper;

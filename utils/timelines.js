@@ -13,33 +13,11 @@ function getAboutLargeScreenTimeline() {
 			},
 		})
 		.to(
-			".html-tech-stack",
+			".hexagon-icon",
 			{
-				opacity: 0,
+				rotate: '180deg',
 			},
-			">"
 		)
-		.to(
-			".javascript-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			".nodejs-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			".mongodb-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		);
 }
 
 function getAboutLeftSmallScreenTimeline() {

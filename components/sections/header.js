@@ -21,12 +21,12 @@ function Header({}) {
 			className="bg-dark h-screen w-screen header-section text-white flex justify-center"
 			id="home"
 		>
-			<div className="absolute z-10">
-				<Menu theme="white" />
+			<div className="absolute px-2 font-bold text-base top-8">
+				Web & Mobile App Development
 			</div>
 			<Logo isPrimary />
-			<div className="absolute px-2 font-bold text-base bottom-8">
-				Web & Mobile App Development
+			<div className="absolute z-10 bottom-0">
+				<Menu theme="white" />
 			</div>
 		</section>
 	);
