@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #ff3d00;
+	--color-dark: #1e1a1a;
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-current: currentColor;
+}
 
 html,
 body {
