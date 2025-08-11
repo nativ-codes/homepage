@@ -1,6 +1,6 @@
-export const PrivacyPolicy = {
+export const XidoPrivacyPolicy = {
   title: 'Privacy Policy',
-  lastUpdated: 'Last Updated: 28 October 2024',
+  lastUpdated: 'Last Updated: 11 May 2025',
   sections: [
     {
       title: 'Introduction',
@@ -69,4 +69,103 @@ export const PrivacyPolicy = {
         'If you have questions about this Privacy Policy or your privacy rights, please contact us at hello@nativ.codes.'
     }
   ]
+};
+
+export const ZaveitPrivacyPolicy = {
+  title: "Privacy Policy",
+  lastUpdated: "Last Updated: 20 June 2025",
+  sections: [
+    {
+      title: "1. Introduction",
+      content:
+        "This Privacy Policy describes how ZaveIT collects, uses, and protects your information when you use the app. By using ZaveIT, you agree to the practices described in this policy.",
+    },
+    {
+      title: "2. Information We Collect",
+      sections: [
+        {
+          content:
+            "Google Account Information: When you sign in using Google, we collect your Google ID, display name, and email address via Firebase Authentication.",
+        },
+        {
+          content:
+            "Post Content: When you share a post, we collect the title, URL, thumbnail (if available), and author (if provided).",
+        },
+        {
+          content:
+            "AI-Generated Tags: We use a large language model to generate up to 3 tags based on the post title.",
+        },
+        {
+          content:
+            "App Usage Data: We may collect anonymized data related to how you interact with ZaveIT to help improve app functionality and user experience.",
+        },
+      ],
+    },
+    {
+      title: "3. How We Use Your Information",
+      sections: [
+        {
+          content:
+            "To authenticate users and manage accounts through Firebase Authentication.",
+        },
+        {
+          content:
+            "To store, display, and organize user-submitted posts and generated tags.",
+        },
+        {
+          content:
+            "To improve and personalize the user experience and functionality of the app.",
+        },
+        {
+          content: "To comply with legal requirements, if necessary.",
+        },
+      ],
+    },
+    {
+      title: "4. Data Storage and Security",
+      content:
+        "We store your data securely using Firebase Firestore and Authentication. Reasonable technical and organizational safeguards are in place to protect your information from unauthorized access, loss, or misuse.",
+    },
+    {
+      title: "5. Sharing of Information",
+      content:
+        "We do not sell, rent, or share your personal data with third parties, except for trusted services that help operate the app (e.g., Firebase and AI providers), or when required by law.",
+    },
+    {
+      title: "6. Your Rights",
+      sections: [
+        {
+          content:
+            "Access: You can request to access the personal data we hold about you.",
+        },
+        {
+          content:
+            "Correction: You may request corrections to inaccurate or incomplete data.",
+        },
+        {
+          content:
+            "Deletion: You can delete your account and all associated data directly from the app.",
+        },
+        {
+          content:
+            "Objection: You can object to certain types of data processing, where applicable.",
+        },
+      ],
+    },
+    {
+      title: "7. Account and Data Deletion",
+      content:
+        "You can permanently delete your account and all associated data at any time from within the app. Once deleted, the data cannot be recovered.",
+    },
+    {
+      title: "8. Changes to This Policy",
+      content:
+        "We may update this Privacy Policy from time to time. Significant changes will be communicated through the app. Continued use of ZaveIT after updates means you accept the updated policy.",
+    },
+    {
+      title: "9. Contact",
+      content:
+        "If you have questions or concerns about this Privacy Policy, please contact us at hello@nativ.codes",
+    },
+  ],
 };
