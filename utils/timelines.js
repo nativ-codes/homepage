@@ -79,41 +79,78 @@ function getWorkLargeScreenTimeline() {
 	//  return;
 	const listraFramesCount = 38;
 	const listraFrameWidth = 316;
+	
+	// Zave-it sprite: 2688x5088, 7 columns x 6 rows, 41 frames
+	// Display size: 300 x 684 (accounting for 8px border on all sides)
+	const zaveItFrameDisplayWidth = 300;
+	const zaveItFrameDisplayHeight = 684;
+	const zaveItCols = 7;
+	const zaveItFramesCount = 41;
 
-	return gsap
-		.timeline({
-			scrollTrigger: {
-				// markers: true,
-				trigger: ".work-section",
-				start: ".work-section",
-				end: "+=200%",
-				pin: true,
-				scrub: true,
-			},
-		})
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			// markers: true,
+			trigger: ".work-section",
+			start: ".work-section",
+			end: "+=500%",
+			pin: true,
+			scrub: true,
+		},
+	});
+	
+	// Step 1->2: Fade out both apps, fade in first app logo
+	timeline
+		.to("#both-apps-initial", { opacity: 0 }, 0)
+		.to("#logo-listra-1", { opacity: 1 }, "<")
+		// Step 2->3: Fade out logo, fade in sprite and play animation
+		.to("#logo-listra-1", { opacity: 0 }, ">")
+		.to("#sprite-listra-1", { opacity: 1 }, "<")
 		.to(
-			"#work-listra",
+			"#work-listra-1",
 			{
-				backgroundPosition:
-					-listraFrameWidth * listraFramesCount + "px 0px",
-				ease: "steps(" + listraFramesCount + ")", // use a stepped ease for the sprite sheet
-			},
-			0
-		)
-		.to(
-			"#download-listra",
-			{
-				opacity: 1,
+				backgroundPosition: -listraFrameWidth * listraFramesCount + "px 0px",
+				ease: "steps(" + listraFramesCount + ")",
 			},
 			">"
 		)
-		.to(
-			"#sprite-listra",
-			{
-				opacity: 0,
-			},
-			"<"
-		);
+		// Step 3->4: Fade out sprite, fade in logo with download buttons
+		.to("#sprite-listra-1", { opacity: 0 }, ">")
+		.to("#download-listra-1", { opacity: 1 }, "<")
+		// Step 4->5: Fade out first app download, fade in second app logo
+		.to("#download-listra-1", { opacity: 0 }, ">")
+		.to("#logo-listra-2", { opacity: 1 }, "<")
+		// Step 5->6: Fade out logo, fade in sprite
+		.to("#logo-listra-2", { opacity: 0 }, ">")
+		.to("#sprite-listra-2", { opacity: 1 }, "<");
+	
+	// Animate through zave-it sprite using a frame counter
+	timeline.to(
+		{},
+		{
+			duration: 1,
+			onUpdate: function() {
+				const progress = this.progress();
+				const frame = Math.floor(progress * (zaveItFramesCount - 1));
+				const col = frame % zaveItCols;
+				const row = Math.floor(frame / zaveItCols);
+				const x = -col * zaveItFrameDisplayWidth;
+				const y = -row * zaveItFrameDisplayHeight;
+				
+				const element = document.getElementById("work-listra-2");
+				if (element) {
+					element.style.backgroundPosition = `${x}px ${y}px`;
+				}
+			}
+		},
+		">"
+	);
+	
+	// Step 6->7: Fade out sprite, fade in logo with download buttons
+	timeline
+		.to("#sprite-listra-2", { opacity: 0 }, ">")
+		.to("#download-listra-2", { opacity: 1 }, "<");
+	
+	return timeline;
 }
 
 function getWorkLeftSmallScreenTimeline() {
@@ -139,32 +176,117 @@ function getWorkRightSmallScreenTimeline() {
 			scrollTrigger: {
 				trigger: ".work-section-right",
 				start: ".work-section-right",
-				end: "+=200%",
+				end: "+=500%",
 				pin: true,
 				scrub: true,
 				pinSpacing: true,
 			},
 		})
+		// Step 1->2: Fade out both apps, fade in first app logo
 		.to(
-			"#work-listra",
+			"#both-apps-initial",
 			{
-				backgroundPosition:
-					-listraFrameWidth * listraFramesCount + "px 0px",
-				ease: "steps(" + listraFramesCount + ")", // use a stepped ease for the sprite sheet
+				opacity: 0,
 			},
 			0
 		)
 		.to(
-			"#download-listra",
+			"#logo-listra-1",
 			{
 				opacity: 1,
+			},
+			"<"
+		)
+		// Step 2->3: Fade out logo, fade in sprite and play animation
+		.to(
+			"#logo-listra-1",
+			{
+				opacity: 0,
 			},
 			">"
 		)
 		.to(
-			"#sprite-listra",
+			"#sprite-listra-1",
+			{
+				opacity: 1,
+			},
+			"<"
+		)
+		.to(
+			"#work-listra-1",
+			{
+				backgroundPosition:
+					-listraFrameWidth * listraFramesCount + "px 0px",
+				ease: "steps(" + listraFramesCount + ")",
+			},
+			">"
+		)
+		// Step 3->4: Fade out sprite, fade in logo with download buttons
+		.to(
+			"#sprite-listra-1",
 			{
 				opacity: 0,
+			},
+			">"
+		)
+		.to(
+			"#download-listra-1",
+			{
+				opacity: 1,
+			},
+			"<"
+		)
+		// Step 4->5: Fade out first app download, fade in second app logo
+		.to(
+			"#download-listra-1",
+			{
+				opacity: 0,
+			},
+			">"
+		)
+		.to(
+			"#logo-listra-2",
+			{
+				opacity: 1,
+			},
+			"<"
+		)
+		// Step 5->6: Fade out logo, fade in sprite and play animation
+		.to(
+			"#logo-listra-2",
+			{
+				opacity: 0,
+			},
+			">"
+		)
+		.to(
+			"#sprite-listra-2",
+			{
+				opacity: 1,
+			},
+			"<"
+		)
+		.to(
+			"#work-listra-2",
+			{
+				backgroundPosition:
+					-listraFrameWidth * listraFramesCount + "px 0px",
+				ease: "steps(" + listraFramesCount + ")",
+			},
+			">"
+		)
+		// Step 6->7: Fade out sprite, fade in logo with download buttons
+		.to(
+			"#sprite-listra-2",
+			{
+				opacity: 0,
+			},
+			">"
+		)
+		.to(
+			"#download-listra-2",
+			{
+				opacity: 1,
 			},
 			"<"
 		);

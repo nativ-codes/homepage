@@ -13,13 +13,13 @@ function Menu({ theme }) {
 			home: 0,
 			about: window.innerHeight * 2,
 			work: window.innerHeight * 4,
-			contact: window.innerHeight * 7,
+			contact: window.innerHeight * 10,
 		};
 		const smallScreenMapper = {
 			home: 0,
 			about: window.innerHeight,
 			work: window.innerHeight * 3,
-			contact: window.innerHeight * 5,
+			contact: window.innerHeight * 9,
 		};
 
 		window.scrollTo({

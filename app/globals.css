@@ -44,6 +44,26 @@ body {
 	background-position: 0px 0px;
 }
 
+#work-listra-1 {
+	width: 316px;
+	height: 700px;
+
+	background-size: auto 650px;
+	background-image: url('/assets/images/projects/listra/listra-sprite.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+#work-listra-2 {
+	width: 316px;
+	height: 700px;
+
+	background-size: auto 650px;
+	background-image: url('/assets/images/projects/listra/listra-sprite.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
 #work-listra-small {
 	width: 158px;
 	height: 350px;
