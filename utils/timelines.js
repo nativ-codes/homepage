@@ -21,58 +21,29 @@ function getAboutLargeScreenTimeline() {
 }
 
 function getAboutLeftSmallScreenTimeline() {
-	return;
 	return gsap.timeline({
 		scrollTrigger: {
 			trigger: ".about-section-left",
-			scrub: 0.5,
-			start: ".about-section-left",
+			start: "top top",
+			end: "+=100%",
 			pin: true,
 			pinSpacing: true,
+			scrub: 0.5,
 		},
 	});
 }
 
 function getAboutRightSmallScreenTimeline() {
-	return;
-	return gsap
-		.timeline({
-			scrollTrigger: {
-				trigger: ".about-section-right",
-				scrub: 0.5,
-				start: ".about-section-right",
-				pin: true,
-				pinSpacing: true,
-			},
-		})
-		.to(
-			".html-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			".javascript-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			".nodejs-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			".mongodb-tech-stack",
-			{
-				opacity: 0,
-			},
-			">"
-		);
+	return gsap.timeline({
+		scrollTrigger: {
+			trigger: ".about-section-right",
+			start: "top top",
+			end: "+=100%",
+			pin: true,
+			pinSpacing: true,
+			scrub: 0.5,
+		},
+	});
 }
 
 function getWorkLargeScreenTimeline() {
@@ -154,142 +125,93 @@ function getWorkLargeScreenTimeline() {
 }
 
 function getWorkLeftSmallScreenTimeline() {
-	return;
 	return gsap.timeline({
 		scrollTrigger: {
 			trigger: ".work-section-left",
-			scrub: 0.5,
-			start: ".work-section-left",
+			start: "top top",
+			end: "+=100%",
 			pin: true,
 			pinSpacing: true,
+			scrub: 0.5,
 		},
 	});
 }
 
 function getWorkRightSmallScreenTimeline() {
-	return;
 	const listraFramesCount = 38;
-	const listraFrameWidth = 158;
+	const listraFrameWidth = 316;
 
-	return gsap
-		.timeline({
-			scrollTrigger: {
-				trigger: ".work-section-right",
-				start: ".work-section-right",
-				end: "+=500%",
-				pin: true,
-				scrub: true,
-				pinSpacing: true,
-			},
-		})
-		// Step 1->2: Fade out both apps, fade in first app logo
-		.to(
-			"#both-apps-initial",
-			{
-				opacity: 0,
-			},
-			0
-		)
-		.to(
-			"#logo-listra-1",
-			{
-				opacity: 1,
-			},
-			"<"
-		)
+	// Zave-it sprite: 2688x5088, 7 columns x 6 rows, 41 frames
+	// Display size: 300 x 684 (accounting for 8px border on all sides)
+	const zaveItFrameDisplayWidth = 300;
+	const zaveItFrameDisplayHeight = 684;
+	const zaveItCols = 7;
+	const zaveItFramesCount = 41;
+
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".work-section-right",
+			start: "top top",
+			end: "+=500%",
+			pin: true,
+			scrub: true,
+			pinSpacing: true,
+		},
+	});
+
+	// Step 1->2: Fade out both apps, fade in first app logo
+	timeline
+		.to("#both-apps-initial", { opacity: 0 }, 0)
+		.to("#logo-listra-1", { opacity: 1 }, "<")
 		// Step 2->3: Fade out logo, fade in sprite and play animation
-		.to(
-			"#logo-listra-1",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			"#sprite-listra-1",
-			{
-				opacity: 1,
-			},
-			"<"
-		)
+		.to("#logo-listra-1", { opacity: 0 }, ">")
+		.to("#sprite-listra-1", { opacity: 1 }, "<")
 		.to(
 			"#work-listra-1",
 			{
-				backgroundPosition:
-					-listraFrameWidth * listraFramesCount + "px 0px",
+				backgroundPosition: -listraFrameWidth * listraFramesCount + "px 0px",
 				ease: "steps(" + listraFramesCount + ")",
 			},
 			">"
 		)
 		// Step 3->4: Fade out sprite, fade in logo with download buttons
-		.to(
-			"#sprite-listra-1",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			"#download-listra-1",
-			{
-				opacity: 1,
-			},
-			"<"
-		)
+		.to("#sprite-listra-1", { opacity: 0 }, ">")
+		.to("#download-listra-1", { opacity: 1 }, "<")
 		// Step 4->5: Fade out first app download, fade in second app logo
-		.to(
-			"#download-listra-1",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			"#logo-listra-2",
-			{
-				opacity: 1,
-			},
-			"<"
-		)
-		// Step 5->6: Fade out logo, fade in sprite and play animation
-		.to(
-			"#logo-listra-2",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			"#sprite-listra-2",
-			{
-				opacity: 1,
-			},
-			"<"
-		)
-		.to(
-			"#work-listra-2",
-			{
-				backgroundPosition:
-					-listraFrameWidth * listraFramesCount + "px 0px",
-				ease: "steps(" + listraFramesCount + ")",
-			},
-			">"
-		)
-		// Step 6->7: Fade out sprite, fade in logo with download buttons
-		.to(
-			"#sprite-listra-2",
-			{
-				opacity: 0,
-			},
-			">"
-		)
-		.to(
-			"#download-listra-2",
-			{
-				opacity: 1,
-			},
-			"<"
-		);
+		.to("#download-listra-1", { opacity: 0 }, ">")
+		.to("#logo-listra-2", { opacity: 1 }, "<")
+		// Step 5->6: Fade out logo, fade in sprite
+		.to("#logo-listra-2", { opacity: 0 }, ">")
+		.to("#sprite-listra-2", { opacity: 1 }, "<");
+
+	// Animate through zave-it sprite using a frame counter
+	timeline.to(
+		{},
+		{
+			duration: 1,
+			onUpdate: function() {
+				const progress = this.progress();
+				const frame = Math.floor(progress * (zaveItFramesCount - 1));
+				const col = frame % zaveItCols;
+				const row = Math.floor(frame / zaveItCols);
+				const x = -col * zaveItFrameDisplayWidth;
+				const y = -row * zaveItFrameDisplayHeight;
+
+				const element = document.getElementById("work-listra-2");
+				if (element) {
+					element.style.backgroundPosition = `${x}px ${y}px`;
+				}
+			}
+		},
+		">"
+	);
+
+	// Step 6->7: Fade out sprite, fade in logo with download buttons
+	timeline
+		.to("#sprite-listra-2", { opacity: 0 }, ">")
+		.to("#download-listra-2", { opacity: 1 }, "<");
+
+	return timeline;
 }
 
 function getContactLargeScreenTimeline() {
@@ -305,27 +227,27 @@ function getContactLargeScreenTimeline() {
 }
 
 function getContactLeftSmallScreenTimeline() {
-	return;
 	return gsap.timeline({
 		scrollTrigger: {
 			trigger: ".contact-section-left",
-			scrub: 0.5,
-			start: ".contact-section-left",
+			start: "top top",
+			end: "+=100%",
 			pin: true,
 			pinSpacing: true,
+			scrub: 0.5,
 		},
 	});
 }
 
 function getContactRightSmallScreenTimeline() {
-	return;
 	return gsap.timeline({
 		scrollTrigger: {
 			trigger: ".contact-section-right",
-			scrub: 0.5,
-			start: ".contact-section-left",
+			start: "top top",
+			end: "+=100%",
 			pin: true,
 			pinSpacing: true,
+			scrub: 0.5,
 		},
 	});
 }
@@ -376,45 +298,52 @@ function getFooterLargeScreenTimeline() {
 }
 
 function getFooterSmallScreenTimeline() {
-	//  return;
-	return gsap
-		.timeline({
-			scrollTrigger: {
-				trigger: ".footer-section",
-				start: "-=20",
-			},
-		})
-		.to(
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".footer-section",
+			start: "top top",
+			end: "+=100%",
+			pin: true,
+			pinSpacing: true,
+			scrub: 0.5,
+		},
+	});
+
+	// Animate from closed state (start) to open state (end)
+	// This way when you scroll down, it opens; scroll up, it closes
+	timeline
+		.from(
 			".logo-expanded-text",
 			{
 				opacity: 0,
-				duration: 0.2,
 			},
 			0
 		)
-		.to(
+		.from(
 			".logo-expanded-left-arrow",
 			{
-				translateX: -280,
-				translateY: -50,
+				x: -280,
+				y: -50,
 			},
 			0
 		)
-		.to(
+		.from(
 			".logo-expanded-right-arrow",
 			{
-				translateX: 280,
-				translateY: 90,
+				x: 280,
+				y: 90,
 			},
 			0
 		)
-		.to(
+		.from(
 			".logo-expanded",
 			{
 				rotation: -90,
 			},
 			0
 		);
+
+	return timeline;
 }
 
 function getHeaderLargeScreenTimeline() {
@@ -465,7 +394,11 @@ function getHeaderSmallScreenTimeline() {
 		.timeline({
 			scrollTrigger: {
 				trigger: ".header-section",
-				start: "+=1",
+				start: "top top",
+				end: "+=100%",
+				pin: true,
+				pinSpacing: true,
+				scrub: 0.5,
 			},
 		})
 		.to(

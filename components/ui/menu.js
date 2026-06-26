@@ -1,5 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { useSearchParams } from 'next/navigation'
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useResponsive } from "../../utils/use-responsive-timeline";
 const sections = ["home", "/", "about", "/", "work", "/", "contact"];
 
@@ -9,6 +11,9 @@ function Menu({ theme }) {
 	const searchParamsPage = searchParams.get('page');
 
 	const scrollTo = (page) => () => {
+		// Refresh ScrollTrigger to get accurate positions
+		ScrollTrigger.refresh();
+
 		const largeScreenMapper = {
 			home: 0,
 			about: window.innerHeight * 2,
@@ -17,9 +22,9 @@ function Menu({ theme }) {
 		};
 		const smallScreenMapper = {
 			home: 0,
-			about: window.innerHeight,
-			work: window.innerHeight * 3,
-			contact: window.innerHeight * 9,
+			about: window.innerHeight * 2,
+			work: window.innerHeight * 6,
+			contact: window.innerHeight * 14,
 		};
 
 		window.scrollTo({
@@ -30,7 +35,11 @@ function Menu({ theme }) {
 
 	useEffect(() => {
 		if (searchParamsPage) {
-			scrollTo(searchParamsPage)();
+			// Small delay to ensure ScrollTrigger is initialized
+			setTimeout(() => {
+				ScrollTrigger.refresh();
+				scrollTo(searchParamsPage)();
+			}, 100);
 		}
 	}, [searchParamsPage])
 

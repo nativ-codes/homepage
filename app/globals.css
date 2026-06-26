@@ -85,3 +85,13 @@ body {
 .contact-section {
 	overflow: hidden;
 }
+
+/* Ensure proper scroll behavior for pinned sections on mobile */
+@media (max-width: 1023px) {
+	.about-section,
+	.work-section,
+	.contact-section,
+	.footer-section {
+		overflow: visible;
+	}
+}

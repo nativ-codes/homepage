@@ -42,12 +42,12 @@ const useResponsiveTimeline = (props) => {
 	useEffect(() => {
 		const timelineFn = timeline(props);
 
-		// Initial run
+		// Initial run - use 1024px to match Tailwind's lg breakpoint
 		timelineFn({
-			matches: window.innerWidth >= 768,
+			matches: window.innerWidth >= 1024,
 		});
 
-		const mql = window.matchMedia("(min-width: 768px)");
+		const mql = window.matchMedia("(min-width: 1024px)");
 		mql.addEventListener("change", timelineFn);
 	}, []);
 };
@@ -56,10 +56,10 @@ const useResponsive = () => {
 	const [isSmallScreen, setIsSmallScreen] = useState(true);
 
 	useEffect(() => {
-		// Initial run
-		setIsSmallScreen(window.innerWidth <= 768);
+		// Initial run - use 1024px to match Tailwind's lg breakpoint
+		setIsSmallScreen(window.innerWidth < 1024);
 
-		const mql = window.matchMedia("(min-width: 768px)");
+		const mql = window.matchMedia("(min-width: 1024px)");
 		mql.addEventListener("change", ({ matches }) =>
 			setIsSmallScreen(!matches)
 		);
