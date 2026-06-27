@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #ff3d00;
+	--color-dark: #1e1a1a;
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-current: currentColor;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'LemonMilk';
+	src: url("/assets/fonts/LEMONMILK-Bold.otf");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+/* Markdown styles */
+.prose h1 {
+	font-size: 2.25rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: #1e1a1a;
+}
+
+.prose h2 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	color: #1e1a1a;
+	scroll-margin-top: 2rem;
+}
+
+.prose h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+	color: #1e1a1a;
+}
+
+.prose p {
+	margin-bottom: 1rem;
+	line-height: 1.75;
+	color: #374151;
+}
+
+.prose ul {
+	list-style-type: disc;
+	padding-left: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.prose ol {
+	list-style-type: decimal;
+	padding-left: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.prose li {
+	margin-bottom: 0.5rem;
+}
+
+.prose a {
+	color: #ff3d00;
+	text-decoration: underline;
+}
+
+.prose a:hover {
+	text-decoration: none;
+}
+
+.prose code {
+	background-color: #f3f4f6;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.875rem;
+}
+
+.prose pre {
+	background-color: #1e1a1a;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	overflow-x: auto;
+	margin-bottom: 1rem;
+}
+
+.prose pre code {
+	background-color: transparent;
+	padding: 0;
+	color: #e5e7eb;
+}
+
+.prose blockquote {
+	border-left: 4px solid #ff3d00;
+	padding-left: 1rem;
+	margin-left: 0;
+	margin-bottom: 1rem;
+	font-style: italic;
+	color: #6b7280;
+}
+
+.prose img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+}
+
+.prose th,
+.prose td {
+	border: 1px solid #e5e7eb;
+	padding: 0.75rem;
+	text-align: left;
+}
+
+.prose th {
+	background-color: #f9fafb;
+	font-weight: 600;
+}

@@ -10,6 +10,9 @@
 
 # next.js
 /.next/
+.next/
+node_modules/
+out/
 /out/
 
 # production
@@ -33,3 +36,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# turbo
+.turbo
