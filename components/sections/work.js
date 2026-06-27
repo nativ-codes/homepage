@@ -47,26 +47,28 @@ function Work({}) {
 					className="absolute inset-0 flex items-center justify-center"
 					id="both-apps-initial"
 				>
-					<div className="flex flex-row gap-12">
+					<div className="flex flex-row gap-6 lg:gap-12">
 						<div className="flex flex-col items-center">
 							<Image
-								width="180"
-								height="180"
+								width="120"
+								height="120"
 								alt="Listra logo"
 								src="/assets/images/projects/listra/listra-logo.png"
+								className="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
 							/>
-							<h2 className="text-dark text-lg font-bold tracking-wider mt-4">
+							<h2 className="text-dark text-base lg:text-lg font-bold tracking-wider mt-2 lg:mt-4">
 								Listra
 							</h2>
 						</div>
 						<div className="flex flex-col items-center">
 							<Image
-								width="180"
-								height="180"
+								width="120"
+								height="120"
 								alt="ZaveIt logo"
 								src="/assets/images/projects/zave-it/zave-it-logo.png"
+								className="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
 							/>
-							<h2 className="text-dark text-lg font-bold tracking-wider mt-4">
+							<h2 className="text-dark text-base lg:text-lg font-bold tracking-wider mt-2 lg:mt-4">
 								ZaveIt
 							</h2>
 						</div>
@@ -78,12 +80,13 @@ function Work({}) {
 					id="logo-listra-1"
 				>
 					<Image
-						width="180"
-						height="180"
+						width="120"
+						height="120"
 						alt="Listra logo"
 						src="/assets/images/projects/listra/listra-logo.png"
+						className="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
 					/>
-					<h1 className="text-dark text-2xl font-bold tracking-wider mt-4">
+					<h1 className="text-dark text-xl lg:text-2xl font-bold tracking-wider mt-2 lg:mt-4">
 						Listra: Shopping list & notes
 					</h1>
 				</div>
@@ -92,11 +95,12 @@ function Work({}) {
 					className="absolute inset-0 flex items-center justify-center flex-col opacity-0"
 					id="sprite-listra-1"
 				>
-					<h1 className="text-dark text-2xl font-bold tracking-wider mb-8">
+					<h1 className="text-dark text-xl lg:text-2xl font-bold tracking-wider mb-4 lg:mb-8 text-center px-4">
 						Listra: Shopping list & notes
 					</h1>
 					<div
 						id="work-listra-1"
+						className="scale-[0.6] lg:scale-100"
 						style={{
 							width: '316px',
 							height: '700px',
@@ -106,16 +110,6 @@ function Work({}) {
 							backgroundPosition: '0px 0px'
 						}}
 					/>
-					<div className="flex flex-col md:hidden">
-						<div className="flex justify-center">
-							<Image
-								width="158"
-								height="325"
-								alt="Listra flow"
-								src="/assets/images/projects/listra/listra.gif"
-							/>
-						</div>
-					</div>
 				</div>
 
 				<div
@@ -123,17 +117,18 @@ function Work({}) {
 					id="download-listra-1"
 				>
 					<Image
-						width="180"
-						height="180"
+						width="120"
+						height="120"
 						alt="Listra logo"
 						src="/assets/images/projects/listra/listra-logo.png"
+						className="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
 					/>
-					<div className="flex flex-row mt-10">
+					<div className="flex flex-row mt-6 lg:mt-10">
 						<a
 							rel="noreferrer"
 							target="_blank"
 							href={appStoreListra}
-							className="cursor-pointer mr-4"
+							className="cursor-pointer mr-2 lg:mr-4"
 						>
 							<Image
 								width="150"
@@ -163,12 +158,13 @@ function Work({}) {
 					id="logo-listra-2"
 				>
 					<Image
-						width="180"
-						height="180"
+						width="120"
+						height="120"
 						alt="ZaveIt logo"
 						src="/assets/images/projects/zave-it/zave-it-logo.png"
+						className="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
 					/>
-					<h1 className="text-dark text-2xl font-bold tracking-wider mt-4">
+					<h1 className="text-dark text-xl lg:text-2xl font-bold tracking-wider mt-2 lg:mt-4">
 						ZaveIt: Smart Bookmark Manager
 					</h1>
 				</div>
@@ -177,11 +173,11 @@ function Work({}) {
 					className="absolute inset-0 flex items-center justify-center flex-col opacity-0"
 					id="sprite-listra-2"
 				>
-					<h1 className="text-dark text-2xl font-bold tracking-wider mb-8">
+					<h1 className="text-dark text-xl lg:text-2xl font-bold tracking-wider mb-4 lg:mb-8 text-center px-4">
 						ZaveIt: Smart Bookmark Manager
 					</h1>
 					<div 
-						className="relative"
+						className="relative scale-[0.6] lg:scale-100"
 						style={{
 							width: '316px',
 							height: '700px',
@@ -205,16 +201,6 @@ function Work({}) {
 							}}
 						/>
 					</div>
-					<div className="flex flex-col md:hidden">
-						<div className="flex justify-center">
-							<Image
-								width="158"
-								height="325"
-								alt="ZaveIt flow"
-								src="/assets/images/projects/zave-it/zave-it-sprite.png"
-							/>
-						</div>
-					</div>
 				</div>
 
 				<div
@@ -222,17 +208,18 @@ function Work({}) {
 					id="download-listra-2"
 				>
 					<Image
-						width="180"
-						height="180"
+						width="120"
+						height="120"
 						alt="ZaveIt logo"
 						src="/assets/images/projects/zave-it/zave-it-logo.png"
+						className="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
 					/>
-					<div className="flex flex-row mt-10">
+					<div className="flex flex-row mt-6 lg:mt-10">
 						<a
 							rel="noreferrer"
 							target="_blank"
 							href={appStoreZaveIt}
-							className="cursor-pointer mr-4"
+							className="cursor-pointer mr-2 lg:mr-4"
 						>
 							<Image
 								width="150"
