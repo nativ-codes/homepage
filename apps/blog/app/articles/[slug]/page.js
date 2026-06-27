@@ -64,7 +64,7 @@ export default async function ArticlePage({ params }) {
           </div>
         </div>
         
-        {/* Right side - scrollable article content */}
+        {/* Right side - scrollable article content  */}
         <div className="relative bg-white p-[56px] sm:p-[96px] w-full sm:ml-[25%] sm:w-3/4">
           {/* Article header */}
           <header className="mb-12">
