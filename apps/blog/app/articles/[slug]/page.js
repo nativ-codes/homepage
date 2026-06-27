@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { getArticleContent } from '../../../utils/getArticleContent';
-import { getArticleMetadata } from '../../../utils/getArticleMetadata';
-import ArticleContent from '../../../components/ArticleContent';
-import TableOfContents from '../../../components/TableOfContents';
+import { getArticleContent } from '../../../utils/get-article-content';
+import { getArticleMetadata } from '../../../utils/get-article-metadata';
+import ArticleContent from '../../../components/article-content';
+import TableOfContents from '../../../components/table-of-contents';
 
 export async function generateStaticParams() {
   const articles = getArticleMetadata();
@@ -61,11 +61,6 @@ export default async function ArticlePage({ params }) {
             <div className="flex-1 overflow-y-auto">
               <TableOfContents content={article.content} />
             </div>
-          </div>
-          
-          {/* Bottom - BLOG branding */}
-          <div className="font-[LemonMilk] text-white text-2xl tracking-wider mt-8">
-            BLOG
           </div>
         </div>
         

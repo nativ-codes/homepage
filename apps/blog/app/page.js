@@ -1,5 +1,5 @@
-import { getArticleMetadata } from '../utils/getArticleMetadata';
-import ArticleCard from '../components/ArticleCard';
+import { getArticleMetadata } from '../utils/get-article-metadata';
+import ArticleCard from '../components/article-card';
 
 export const metadata = {
   title: 'Blog | NativCodes',
