@@ -10,7 +10,7 @@ export default function ArticleCard({ article }) {
   return (
     <article className="border-b border-gray-200 py-8 last:border-0">
       <Link 
-        href={`/articles/${article.slug}/`}
+        href={`/${article.slug}/`}
         className="group block"
       >
         <h2 className="text-2xl font-bold text-dark group-hover:text-primary transition-colors mb-3">

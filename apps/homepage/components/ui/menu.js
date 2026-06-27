@@ -59,7 +59,7 @@ function Menu({ theme }) {
 						className="px-2 font-bold text-sm"
 					>
 						<a 
-							href="http://localhost:3003" 
+							href="https://nativ.codes/blog" 
 							target="_blank" 
 							rel="noopener noreferrer"
 							className="cursor-pointer inline-flex items-center gap-1"

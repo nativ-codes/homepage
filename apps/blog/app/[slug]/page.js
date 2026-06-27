@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
-import { getArticleContent } from '../../../utils/get-article-content';
-import { getArticleMetadata } from '../../../utils/get-article-metadata';
-import ArticleContent from '../../../components/article-content';
-import TableOfContents from '../../../components/table-of-contents';
+import Link from 'next/link';
+import { getArticleContent } from '../../utils/get-article-content';
+import { getArticleMetadata } from '../../utils/get-article-metadata';
+import ArticleContent from '../../components/article-content';
+import TableOfContents from '../../components/table-of-contents';
 
 export async function generateStaticParams() {
   const articles = getArticleMetadata();
@@ -48,7 +49,7 @@ export default async function ArticlePage({ params }) {
         <div className="bg-dark sm:fixed sm:top-0 sm:left-0 flex flex-col justify-between h-screen w-full sm:w-1/4 p-8 sm:p-12">
           {/* Top - back link and TOC */}
           <div className="flex flex-col h-full">
-            <a 
+            <Link 
               href="/"
               className="text-gray-400 hover:text-white text-sm mb-8 transition-colors inline-flex items-center gap-2"
             >
@@ -56,7 +57,7 @@ export default async function ArticlePage({ params }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
               Back to all articles
-            </a>
+            </Link>
             
             <div className="flex-1 overflow-y-auto">
               <TableOfContents content={article.content} />
@@ -64,7 +65,7 @@ export default async function ArticlePage({ params }) {
           </div>
         </div>
         
-        {/* Right side - scrollable article content  */}
+        {/* Right side - scrollable article content */}
         <div className="relative bg-white p-[56px] sm:p-[96px] w-full sm:ml-[25%] sm:w-3/4">
           {/* Article header */}
           <header className="mb-12">
