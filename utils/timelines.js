@@ -50,7 +50,9 @@ function getWorkLargeScreenTimeline() {
 	//  return;
 	const listraFramesCount = 38;
 	const listraFrameWidth = 316;
-	
+	const listraFrameHeight = 650;
+	const listraCols = 5;
+
 	// Zave-it sprite: 2688x5088, 7 columns x 6 rows, 41 frames
 	// Display size: 300 x 684 (accounting for 8px border on all sides)
 	const zaveItFrameDisplayWidth = 300;
@@ -75,15 +77,29 @@ function getWorkLargeScreenTimeline() {
 		.to("#logo-listra-1", { opacity: 1 }, "<")
 		// Step 2->3: Fade out logo, fade in sprite and play animation
 		.to("#logo-listra-1", { opacity: 0 }, ">")
-		.to("#sprite-listra-1", { opacity: 1 }, "<")
-		.to(
-			"#work-listra-1",
-			{
-				backgroundPosition: -listraFrameWidth * listraFramesCount + "px 0px",
-				ease: "steps(" + listraFramesCount + ")",
+		.to("#sprite-listra-1", { opacity: 1 }, "<");
+
+	timeline.to(
+		{},
+		{
+			duration: 1,
+			onUpdate: function () {
+				const frame = Math.min(
+					listraFramesCount,
+					Math.floor(this.progress() * listraFramesCount)
+				);
+				const col = frame % listraCols;
+				const row = Math.floor(frame / listraCols);
+				const element = document.getElementById("work-listra-1");
+				if (element) {
+					element.style.backgroundPosition = `${-col * listraFrameWidth}px ${-row * listraFrameHeight}px`;
+				}
 			},
-			">"
-		)
+		},
+		">"
+	);
+
+	timeline
 		// Step 3->4: Fade out sprite, fade in logo with download buttons
 		.to("#sprite-listra-1", { opacity: 0 }, ">")
 		.to("#download-listra-1", { opacity: 1 }, "<")
@@ -93,7 +109,7 @@ function getWorkLargeScreenTimeline() {
 		// Step 5->6: Fade out logo, fade in sprite
 		.to("#logo-listra-2", { opacity: 0 }, ">")
 		.to("#sprite-listra-2", { opacity: 1 }, "<");
-	
+
 	// Animate through zave-it sprite using a frame counter
 	timeline.to(
 		{},
@@ -140,6 +156,8 @@ function getWorkLeftSmallScreenTimeline() {
 function getWorkRightSmallScreenTimeline() {
 	const listraFramesCount = 38;
 	const listraFrameWidth = 316;
+	const listraFrameHeight = 650;
+	const listraCols = 5;
 
 	// Zave-it sprite: 2688x5088, 7 columns x 6 rows, 41 frames
 	// Display size: 300 x 684 (accounting for 8px border on all sides)
@@ -165,15 +183,29 @@ function getWorkRightSmallScreenTimeline() {
 		.to("#logo-listra-1", { opacity: 1 }, "<")
 		// Step 2->3: Fade out logo, fade in sprite and play animation
 		.to("#logo-listra-1", { opacity: 0 }, ">")
-		.to("#sprite-listra-1", { opacity: 1 }, "<")
-		.to(
-			"#work-listra-1",
-			{
-				backgroundPosition: -listraFrameWidth * listraFramesCount + "px 0px",
-				ease: "steps(" + listraFramesCount + ")",
+		.to("#sprite-listra-1", { opacity: 1 }, "<");
+
+	timeline.to(
+		{},
+		{
+			duration: 1,
+			onUpdate: function () {
+				const frame = Math.min(
+					listraFramesCount,
+					Math.floor(this.progress() * listraFramesCount)
+				);
+				const col = frame % listraCols;
+				const row = Math.floor(frame / listraCols);
+				const element = document.getElementById("work-listra-1");
+				if (element) {
+					element.style.backgroundPosition = `${-col * listraFrameWidth}px ${-row * listraFrameHeight}px`;
+				}
 			},
-			">"
-		)
+		},
+		">"
+	);
+
+	timeline
 		// Step 3->4: Fade out sprite, fade in logo with download buttons
 		.to("#sprite-listra-1", { opacity: 0 }, ">")
 		.to("#download-listra-1", { opacity: 1 }, "<")

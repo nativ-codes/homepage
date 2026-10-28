@@ -103,8 +103,9 @@ function Work({}) {
 						className="scale-[0.6] lg:scale-100"
 						style={{
 							width: '316px',
-							height: '700px',
-							backgroundSize: 'auto 650px',
+							height: '650px',
+							overflow: 'hidden',
+							backgroundSize: '1580px 5200px',
 							backgroundImage: "url('/assets/images/projects/listra/listra-sprite.png')",
 							backgroundRepeat: 'no-repeat',
 							backgroundPosition: '0px 0px'

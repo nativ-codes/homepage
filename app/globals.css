@@ -36,9 +36,10 @@ body {
 
 #work-listra {
 	width: 316px;
-	height: 700px;
+	height: 650px;
+	overflow: hidden;
 
-	background-size: auto 650px;
+	background-size: 1580px 5200px;
 	background-image: url('/assets/images/projects/listra/listra-sprite.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
@@ -46,9 +47,10 @@ body {
 
 #work-listra-1 {
 	width: 316px;
-	height: 700px;
+	height: 650px;
+	overflow: hidden;
 
-	background-size: auto 650px;
+	background-size: 1580px 5200px;
 	background-image: url('/assets/images/projects/listra/listra-sprite.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
@@ -58,7 +60,7 @@ body {
 	width: 316px;
 	height: 700px;
 
-	background-size: auto 650px;
+	background-size: 316px auto;
 	background-image: url('/assets/images/projects/listra/listra-sprite.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
@@ -66,9 +68,10 @@ body {
 
 #work-listra-small {
 	width: 158px;
-	height: 350px;
+	height: 325px;
+	overflow: hidden;
 
-	background-size: auto 325px;
+	background-size: 790px 2600px;
 	background-image: url('/assets/images/projects/listra/listra-sprite.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
