@@ -73,12 +73,12 @@ export const XidoPrivacyPolicy = {
 
 export const ZaveitPrivacyPolicy = {
   title: "Privacy Policy",
-  lastUpdated: "Last Updated: 20 June 2025",
+  lastUpdated: "Last Updated: 7 November 2026",
   sections: [
     {
       title: "1. Introduction",
       content:
-        "This Privacy Policy describes how ZaveIT collects, uses, and protects your information when you use the app. By using ZaveIT, you agree to the practices described in this policy.",
+        "This Privacy Policy describes how ZaveIt collects, uses, and protects your information when you use the app, and when someone visits one of your Published Lists. By using ZaveIt, you agree to the practices described in this policy.",
     },
     {
       title: "2. Information We Collect",
@@ -89,7 +89,19 @@ export const ZaveitPrivacyPolicy = {
         },
         {
           content:
+            "Apple Account Information: When you sign in using Apple, Apple shares an ID, your email address (which may be a private relay address), and your name if you choose to share it, via Firebase Authentication.",
+        },
+        {
+          content:
             "Post Content: When you share a post, we collect the title, URL, thumbnail (if available), and author (if provided).",
+        },
+        {
+          content:
+            "Post Pictures: We keep a copy of each post's picture so it can be shown on your Published Lists.",
+        },
+        {
+          content:
+            "Lists: If you create Lists, we store your Username, each List's name and Tags, and a hashed form of each List Password.",
         },
         {
           content:
@@ -97,7 +109,7 @@ export const ZaveitPrivacyPolicy = {
         },
         {
           content:
-            "App Usage Data: We may collect anonymized data related to how you interact with ZaveIT to help improve app functionality and user experience.",
+            "App Usage Data: We may collect anonymized data related to how you interact with ZaveIt to help improve app functionality and user experience.",
         },
       ],
     },
@@ -114,6 +126,10 @@ export const ZaveitPrivacyPolicy = {
         },
         {
           content:
+            "To show your Published Lists to anyone you give a List Password to.",
+        },
+        {
+          content:
             "To improve and personalize the user experience and functionality of the app.",
         },
         {
@@ -124,15 +140,49 @@ export const ZaveitPrivacyPolicy = {
     {
       title: "4. Data Storage and Security",
       content:
-        "We store your data securely using Firebase Firestore and Authentication. Reasonable technical and organizational safeguards are in place to protect your information from unauthorized access, loss, or misuse.",
+        "We store your data securely using Firebase Firestore and Authentication. Post pictures are stored with Cloudflare. Anyone with a picture's link can open it, because the List Password protects the List page, not the picture file. A picture is deleted within about 30 days of deleting its post, and right away when you delete your account. Reasonable technical and organizational safeguards are in place to protect your information from unauthorized access, loss, or misuse.",
     },
     {
       title: "5. Sharing of Information",
       content:
-        "We do not sell, rent, or share your personal data with third parties, except for trusted services that help operate the app (e.g., Firebase and AI providers), or when required by law.",
+        "We do not sell or rent your personal data. We share it only with the services that help operate the app, listed below, or when required by law:",
+      sections: [
+        {
+          content: "Google Firebase: sign-in and database.",
+        },
+        {
+          content:
+            "DeepSeek: generates tags from post titles. DeepSeek is a provider based in China.",
+        },
+        {
+          content: "Cloudflare: stores and serves post pictures, and DNS.",
+        },
+        {
+          content:
+            "Our server provider: hosts the ZaveIt API and the Published List pages.",
+        },
+      ],
     },
     {
-      title: "6. Your Rights",
+      title: "6. Visitors",
+      content:
+        "A Visitor is anyone who opens a Published List in a browser. Visitors do not need an account.",
+      sections: [
+        {
+          content:
+            "IP Address: Used only to limit password guesses. It is not stored after that.",
+        },
+        {
+          content:
+            "Access Token: After the correct List Password is entered, a token is kept in the browser tab for up to 24 hours and is dropped when the tab is closed.",
+        },
+        {
+          content: "No cookies and no analytics are used on Published List pages.",
+        },
+      ],
+    },
+    {
+      title: "7. Your Rights",
       sections: [
         {
           content:
@@ -153,17 +203,17 @@ export const ZaveitPrivacyPolicy = {
       ],
     },
     {
-      title: "7. Account and Data Deletion",
+      title: "8. Account and Data Deletion",
       content:
-        "You can permanently delete your account and all associated data at any time from within the app. Once deleted, the data cannot be recovered.",
+        "You can permanently delete your account and all associated data at any time from within the app. This includes your Lists, Username, and post pictures. Once deleted, the data cannot be recovered.",
     },
     {
-      title: "8. Changes to This Policy",
+      title: "9. Changes to This Policy",
       content:
-        "We may update this Privacy Policy from time to time. Significant changes will be communicated through the app. Continued use of ZaveIT after updates means you accept the updated policy.",
+        "We may update this Privacy Policy from time to time. Significant changes will be communicated through the app. Continued use of ZaveIt after updates means you accept the updated policy.",
     },
     {
-      title: "9. Contact",
+      title: "10. Contact",
       content:
         "If you have questions or concerns about this Privacy Policy, please contact us at hello@nativ.codes",
     },
