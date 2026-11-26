@@ -7,7 +7,7 @@ tags: ["ai", "react-native", "hiring", "career"]
 
 Two years ago I pressed `Tab` in Cursor for the first time and felt like I'd been handed a cheat code I didn't deserve. I was mid-thought, about to write a `console.log` to check some state, and the editor had already put it there in ghost text. I tapped one key and it was done before I'd finished forming the thought. I laughed out loud, alone in my apartment, like a maniac.
 
-I've used Cursor every day since... well, until Elon broke some things, but that's a story for another time. I've watched the agentic features roll in, the little bots that refactor a whole file while you grab coffee, and I've liked all of it. But I've always been stubborn about the tap. I like typing my own `useEffect` dependencies and wiring up utility functions by hand. The friction keeps me honest.
+I've used Cursor every day since. I've watched the agentic features roll in, the little bots that refactor a whole file while you grab coffee, and I've liked all of it. But I've always been stubborn about the tap. I like typing my own `useEffect` dependencies and wiring up utility functions by hand. The friction keeps me honest.
 
 ## Building a team from zero
 
