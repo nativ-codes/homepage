@@ -1,0 +1,98 @@
+
+
+Last year, I found myself in a situation where I realized that many things changed. I changed. The way I was doing things was no longer the way I should do them. So I needed something new. I could feel it in the way I was refreshing LinkedIn at 11 PM—not doom-scrolling, just… waiting for something to catch—when a message from an HR recruiter stopped me cold. They were hiring a React Native engineer for an app so popular that if you asked ten random people on the street if they had it installed, at least six would say yes.
+
+"Weird," I replied. "I didn't know that the app uses React Native."
+
+"No no," they said. "You will be the first React Native engineer."
+
+That made my eyes shine. But there was a catch: the app had two separate codebases, one for Android and one for iOS. The React Native project I was supposed to build didn't exist yet. I was getting ready to start it from zero.
+
+
+
+Two weeks later, I sat down with the native teams. No codebase to look at yet—just a meeting room, a whiteboard, and three people trying to figure out what we were actually building. They didn't know much about React Native, so I had to explain everything from the ground up. There was a language barrier in the room too: me thinking in JavaScript, the Android engineer in Kotlin, the iOS engineer in Swift. Three different languages, one conversation.
+
+After the meeting, I sat there staring at the whiteboard, thinking to myself: *how do I do this?* How do I bring React Native into a company where it has never existed before, without breaking everything?
+
+The manual approach—what React Native's own docs describe—is like renovating a house by adding a new room directly onto the existing structure. Everything moves into the same codebase: the JavaScript, the native bridge code, the build settings. One build, one version. It sounds reasonable until you realize it means the native team has to understand your JavaScript engine, your `Podfile`, your gradle conflicts. I couldn't just walk into their standup and say, "Hey, I know you don't know me, but my React Native project will be injected into your project. Please install this long list of libraries and tools. I promise I won't break anything." Obviously that would've sounded weird. The most straightforward idea was falling slowly apart.
+
+"You want us to maintain your JavaScript?" the Android lead asked.
+
+"No," I said. "I want you to treat it like any other SDK."
+
+Then I found out that the folks at Callstack — those brilliant Polish engineers who keep rescuing the React Native ecosystem — had already built exactly what I needed. They had a library called `react-native-brownfield`. Instead of building that new room directly onto the house frame, they designed a prefabricated module. Imagine a self-contained guest pod that arrives on a truck, fully wired with its own plumbing, heating, and electricity. You don't need to know how the water heater inside works; you just connect it to your existing power and water lines, and suddenly you have a functional living space. That's what their packaged approach does. Everything — the JavaScript engine, the bundle loading, the native module wiring — gets sealed inside a binary artifact, an AAR on Android or an XCFramework on iOS.
+
+
+So I built the pod. Not a new architecture—a new relationship. The native app treats it like any third-party SDK: they link against a versioned binary, call a simple interface, and that's it. All the complexity stays locked inside. The guest pod arrives fully wired. The native team doesn't need to know how the water heater works; they just connect the power and water lines, and suddenly they have a functional living space.
+
+"So you want us to… add your JavaScript… to our build?" the Android engineer asked, squinting at my diagram.
+
+"No," I said. "I want you to add one line to your `build.gradle`. The JavaScript never touches your repo."
+
+It was a first for all of us. We spent a lot of time understanding how `react-native-brownfield` actually works. We read their documentation ten times, their code twice, just to make sure we understood its functionality before we committed to it. Everything smoothed out in the end. My React Native project ended up completely self-contained, isolated, versioned, and sitting on its own registries—one for Android, one for iOS. Want to open a React Native screen? Easy. Pull down version 1.5.2 of the package, call `init()`, then `navigateToScreenA`, pass a few parameters, and you're done. The package literally tells you how to use it.
+
+
+Working with React Native is all fun and games until you bump into something the framework simply doesn't support. And there was one thing management cared about more than almost anything: over-the-air updates. Besides OTA, there were also unsupported things related to `react-native-brownfield`, but we managed to make them work. We'll talk about those in another article.
+
+You know what OTA updates are, right? That's where the magic happens—patches land on your device without ever touching the App Store or Play Store. Shipped a nasty bug to production? No worries, just push a fix and call it a day. Management loved it. They could ask to change the color of a button and see it live in two minutes instead of waiting two weeks for store approval. So there was a lot of focus on getting OTA right.
+
+But when I brought it up to the native team, the iOS engineer looked at me like I had just suggested we hack the Pentagon.
+
+"What?" he said. "What is OTA? You change the code without publishing? Really? Can you really do that?"
+
+"Yes," I said. "But not for native code. Only JavaScript."
+
+He shrugged. "That sounds like magic. And I don't trust magic."
+
+The problem was, in a brownfield app with a fully isolated AAR or XCFramework, OTA turned out to be something so niched that it didn't exist. There was no library with proper support for pushing updates into a sealed binary artifact consumed by a host app. Think about it: pushing an update into a package that lives inside another app, where the native team doesn't even see your JavaScript. It was so specific that I had to build the solution myself, tailored to my needs.
+
+In the end, I settled on `hot-updater`. I got lucky — the maintainer and I worked closely together, he helped me lay the foundation, gave me exactly what I needed to get started. Once I had it running, I started contributing back, adding better brownfield support to the library itself.
+
+The idea is simple: your AAR or XCFramework should be completely isolated, handling its own updates no matter what version the host app is on. You stamp a fingerprint on your binary, and every OTA update gets tied to that fingerprint.
+
+But here's the trap: you decided to add some shiny new library that includes native code? Bad move. You can't ship native changes over the air. You need a brand new AAR or XCFramework, which means a brand new fingerprint.
+
+Now, you can always ship the same fix across two fingerprints, right? Right?
+
+But what happens when a user is on the older fingerprint, gets your OTA fix, and then upgrades the host app to the newer fingerprint? The OTA bundle gets invalidated on upgrade. So the user ends up seeing whatever shipped inside the new AAR or XCFramework, not the latest OTA you pushed — at least when the update isn't mandatory. With non-mandatory updates, the first time the user hits the React Native side, the app downloads the bundle and installs it for the next visit. If you're making updates mandatory, I really hope you have a good reason — but yes, in that case the update should apply exactly as expected.
+
+This thing called OTA continuity handles the handoff gracefully. When the fingerprint changes — say the user upgrades the host app and gets a new AAR or XCFramework — the app checks if there's a fresh OTA update for the currently installed fingerprint. If there is, it installs it. If not, it just falls back to the bundle that shipped inside the binary. This is yet another thing that stretched my mind, made me think outside the box, to all the cases and see how everything fits together. Simple in theory, but it forced me to think about edge cases I never would have considered otherwise.
+
+
+"You're treating the AAR like a black box," the Android engineer said.
+
+"That's the point," I said. "But the black box needs to breathe."
+
+I had been chasing the wrong problem. The issue wasn't OTA itself. The problem was the isolation itself. You treat the AAR or XCFramework like an npm package: the host installs it by a specific version, and you update the content for that version based on that version's fingerprint.
+
+Here's the difference: **version** is what the host app sees. It knows it has the AAR/XCFramework version 1.5.2 installed (which contains the React Native code and uses `react-native-brownfield` under the hood). **Fingerprint** is a string used to match the OTA updates. Each OTA gets tied to a specific fingerprint. The host doesn't know about fingerprints; that's internal to the package.
+
+It's like installing a smart dishwasher, Model v1.5.2 (the version). The building manager knows it's Model v1.5.2 and it has buttons labeled "Start" and "Eco Mode." The manufacturer, meanwhile, stamps a fingerprint on that model and can push new wash cycles, energy-saving modes, even fix the drain logic over WiFi (OTA). But if you want to add a steam feature that needs a different heating element (native code), you need Dishwasher Model v2.0.0 — a physical replacement. And the wash-cycle updates you got for v1.5.2? They don't live inside v2.0.0. You get the factory programs until the manufacturer pushes new ones for Model v2.0.0.
+
+That was the tension. Isolation is a promise you make to the native team, but it creates a maze for yourself. The question the rest of my work would try to answer: **How do you keep the promise without getting lost in the maze?**
+
+And then I realized that nothing is what it seems in a world where the libraries are not mature enough. Last month I forced the recreation of our `yarn.lock` — god knows why — and it came with some patches applied to libraries I didn't even know we had. They were just patches, harmless little diffs, right? Except they didn't just break the script that generates our AAR and XCFramework. They broke the OTA flow too. And it happened twice. Thank god I found out at the right time, because otherwise I would have had to walk into the product owner's office and say: "I did something bad and we can't update the app with OTA. We need to do it the old way — store publishing and hoping the users update."
+
+## 6. What I Learned (So Far)
+
+Here's what I know now.
+
+**First, the native team is your user, not your enemy.** Package everything. They know they have this package installed on a specific version. They don't know what's inside, but they know how to use it because you exported a clean interface. If they have to open your `Podfile` to fix a conflict, you've already lost.
+
+"So we're just… a black box?" the iOS engineer asked.
+
+"You're the building," I said. "I'm the appliance inside it. You know where the plug goes. That's all you need."
+
+**Second, fingerprints are your contract.** You stamp a fingerprint on your binary, and every OTA update gets tied to that fingerprint. But the trap is real: add a library with native code, and you need a brand new AAR or XCFramework, which means a brand new fingerprint.
+
+**Third, help the open source community.** The open source ecosystem is the reason any of this is possible, and in a world where AI is generating more code than ever, we should fight to keep it exactly as it is: human, collaborative, and open.
+
+**Fourth, patches are never harmless.** That `yarn.lock` incident taught me that a two-line diff in a transitive dependency can break your entire pipeline. I now treat every patch like it's holding a live wire.
+
+I think about this in two modes now. **Mode one: React Native as the Guest.** Isolated, versioned, self-contained. The native team doesn't know what's inside the package, and that's the point. They only know the interface. **Mode two: React Native as the Plumber.** You know where every pipe connects because you built the adapters, you wrote the migration logic, and you understand that isolation is a promise you make, not a default you get.
+
+The non-negotiable rule I'd bet my career on: **Native teams shouldn't have to care about your JS bundle.**
+
+## 7. The Conclusion
+
+I don't have it all figured out. I'm still constantly upgrading libraries to get the best compatibility, still watching `yarn.lock` like it's a loaded weapon. I still believe the packaged approach is the only sane way to bring React Native into a brownfield app at scale. I believe native teams shouldn't have to care about your JS bundle. I believe that if you're the one injecting a runtime into someone else's house, you better know where every pipe connects. And I believe that getting your hands dirty — writing the migration logic, fixing the edge case, contributing back to the open source community — is the job. Not a side quest. The job.

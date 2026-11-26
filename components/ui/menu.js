@@ -4,7 +4,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from 'next/link';
 import { useResponsive } from "../../utils/use-responsive-timeline";
-const SHOW_BLOG = false;
+const SHOW_BLOG = true;
 const sections = SHOW_BLOG
 	? ["home", "/", "about", "/", "work", "/", "contact", "/", "blog"]
 	: ["home", "/", "about", "/", "work", "/", "contact"];
