@@ -1,5 +1,5 @@
 {
-  "name": "nativ-codes",
+  "name": "homepage",
   "compatibility_date": "2026-11-01",
   // static export only (next.config.js output: "export"), no Worker script
   "assets": {
